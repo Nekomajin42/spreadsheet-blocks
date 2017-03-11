@@ -1,0 +1,56 @@
+html {
+height: 100%;}
+
+body {
+margin: 0;
+height: 100%;
+font-family: Verdana, sans-serif;
+font-size: 16px;}
+
+main {
+box-sizing: border-box;
+height: 100%;}
+
+form {
+box-sizing: border-box;
+width: 100%;
+overflow: auto;
+border-bottom: 5px solid Grey;
+background-color: WhiteSmoke;}
+
+input[type="button"] {
+box-sizing: border-box;
+height: 30px;
+width: 100px;
+float: left;
+margin: 10px;
+color: White;
+font-size: 1rem;
+border: none;
+background-color: Grey;}
+
+input[type="button"]:hover {
+color: Black;
+background-color: LightGrey;}
+
+input[type="button"]:focus {
+outline: none;}
+
+input[type="text"] {
+box-sizing: border-box;
+height: 30px;
+width: calc(100% - 140px);
+float: left;
+margin: 10px;
+font-size: 1rem;
+border: none;
+background-color: WhiteSmoke;}
+
+section {
+box-sizing: border-box;
+height: calc(100% - 55px);
+width: 100%;
+overflow: auto;}
+
+.blocklyTreeRow {
+padding-bottom: 3px !important;}
