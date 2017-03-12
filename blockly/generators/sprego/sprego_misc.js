@@ -10,15 +10,33 @@ Blockly.JavaScript["sprego_start"] = function(block)
 	return "=" + body;
 };
 
-Blockly.JavaScript["sprego_if"] = function(block)
-{
-	var check = Blockly.JavaScript.valueToCode(block, "LOGICAL_STATEMENT", Blockly.JavaScript.ORDER_NONE || "");
-	var iftrue = Blockly.JavaScript.valueToCode(block, "VALUE_IF_TRUE", Blockly.JavaScript.ORDER_NONE || "");
-	var iffalse = Blockly.JavaScript.valueToCode(block, "VALUE_IF_FALSE", Blockly.JavaScript.ORDER_NONE || "");
-	return ["ha(" + check + "; " + iftrue + "; " + iffalse + ")", Blockly.JavaScript.ORDER_NONE];
-};
-
 Blockly.JavaScript["sprego_statement"] = function(block)
 {
-	return [block.getFieldValue("STATEMENT"), Blockly.JavaScript.ORDER_NONE];
+	var statement = block.getFieldValue("STATEMENT");
+	var next = Blockly.JavaScript.valueToCode(block, "NEXT", Blockly.JavaScript.ORDER_NONE || "");
+	next = (next=="") ? next : "; " + next;
+	return [statement + next, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["sprego_mathops"] = function(block)
+{
+	var operator = block.getFieldValue("OPERATOR");
+	var left = Blockly.JavaScript.valueToCode(block, "LEFT", Blockly.JavaScript.ORDER_NONE || "");
+	var right = Blockly.JavaScript.valueToCode(block, "RIGHT", Blockly.JavaScript.ORDER_NONE || "");
+	return ["(" + left + operator + right + ")", Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["sprego_logicops"] = function(block)
+{
+	var operator = block.getFieldValue("OPERATOR");
+	var left = Blockly.JavaScript.valueToCode(block, "LEFT", Blockly.JavaScript.ORDER_NONE || "");
+	var right = Blockly.JavaScript.valueToCode(block, "RIGHT", Blockly.JavaScript.ORDER_NONE || "");
+	return ["(" + left + operator + right + ")", Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["sprego_array"] = function(block)
+{
+	var start = Blockly.JavaScript.valueToCode(block, "START", Blockly.JavaScript.ORDER_NONE || "");
+	var end = Blockly.JavaScript.valueToCode(block, "END", Blockly.JavaScript.ORDER_NONE || "");
+	return [start + ":" + end, Blockly.JavaScript.ORDER_NONE];
 };

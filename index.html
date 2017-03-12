@@ -12,41 +12,71 @@
 		<script src="blockly/blockly_compressed.js" type="text/javascript"></script>
 		<script src="blockly/javascript_compressed.js" type="text/javascript"></script>
 		<script src="blockly/blocks_compressed.js" type="text/javascript"></script>
+		<script src="blockly/msg/js/hu.js"></script>
 		
 		<!-- blocks -->
 		<script src="blockly/blocks/sprego_misc.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_math.js" type="text/javascript"></script>
+		<script src="blockly/blocks/sprego_logical.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_text.js" type="text/javascript"></script>
+		<script src="blockly/blocks/sprego_conditional.js" type="text/javascript"></script>
+		<script src="blockly/blocks/sprego_search.js" type="text/javascript"></script>
 		
 		<!-- generators -->
 		<script src="blockly/generators/sprego/sprego_misc.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_math.js" type="text/javascript"></script>
+		<script src="blockly/generators/sprego/sprego_logical.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_text.js" type="text/javascript"></script>
+		<script src="blockly/generators/sprego/sprego_conditional.js" type="text/javascript"></script>
+		<script src="blockly/generators/sprego/sprego_search.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<main>
 			<form>
-				<input type="button" id="generate" value="Létrehozás" />
+				<input type="button" id="generate" value="Létrehozás" title="Excel kód generálása" />
 				<input type="text" id="output" readonly />
+				<input type="button" id="help" value="?" title="Súgó, licensz, kapcsolat..." />
 			</form>
 			<section id="blockly"></section>
 		</main>
-		<xml id="toolbox">
-			<category name="Kezdő" colour="120" expanded="true">
-				<block type="sprego_statement"></block>
-				<block type="sprego_if"></block>
-			</category>
-			<category name="Matematikai" colour="140">
-				<block type="sprego_sum"></block>
-				<block type="sprego_avg"></block>
-				<block type="sprego_min"></block>
-				<block type="sprego_max"></block>
-			</category>
-			<category name="Szöveg" colour="160">
-				<block type="sprego_left"></block>
-				<block type="sprego_right"></block>
-				<block type="sprego_length"></block>
-			</category>
-		</xml>
+		<script id="toolbox" type="application/xml">
+			<xml>
+				<category name="Kifejezések" colour="270" expanded="true">
+					<block type="sprego_statement"></block>
+					<block type="sprego_mathops"></block>
+					<block type="sprego_logicops"></block>
+					<block type="sprego_array"></block>
+				</category>
+				<category name="Matematikai függvények" colour="240">
+					<block type="sprego_sum"></block>
+					<block type="sprego_avg"></block>
+					<block type="sprego_min"></block>
+					<block type="sprego_max"></block>
+					<block type="sprego_small"></block>
+					<block type="sprego_large"></block>
+				</category>
+				<category name="Logikai függvények" colour="210">
+					<block type="sprego_and"></block>
+					<block type="sprego_or"></block>
+					<block type="sprego_not"></block>
+				</category>
+				<category name="Szöveg függvények" colour="180">
+					<block type="sprego_left"></block>
+					<block type="sprego_right"></block>
+					<block type="sprego_length"></block>
+					<block type="sprego_search"></block>
+				</category>
+				<category name="Feltételes függvények" colour="150">
+					<block type="sprego_if"></block>
+					<block type="sprego_iserror"></block>
+				</category>
+				<category name="Kereső függvények" colour="120">
+					<block type="sprego_index"></block>
+					<block type="sprego_match"></block>
+					<block type="sprego_row"></block>
+					<block type="sprego_column"></block>
+				</category>
+			</xml>
+		</script>
 	</body>
 </html>

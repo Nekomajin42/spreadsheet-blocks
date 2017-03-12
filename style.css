@@ -15,10 +15,10 @@ form {
 box-sizing: border-box;
 width: 100%;
 overflow: auto;
-border-bottom: 5px solid Grey;
+border-bottom: 5px solid Green;
 background-color: WhiteSmoke;}
 
-input[type="button"] {
+#generate {
 box-sizing: border-box;
 height: 30px;
 width: 100px;
@@ -27,21 +27,34 @@ margin: 10px;
 color: White;
 font-size: 1rem;
 border: none;
-background-color: Grey;}
+border-radius: 5px;
+background-color: Green;}
 
-input[type="button"]:hover {
-color: Black;
-background-color: LightGrey;}
-
-input[type="button"]:focus {
-outline: none;}
-
-input[type="text"] {
+#help {
 box-sizing: border-box;
 height: 30px;
-width: calc(100% - 140px);
+width: 30px;
 float: left;
 margin: 10px;
+color: White;
+font-size: 1rem;
+border: none;
+border-radius: 50%;
+background-color: Green;}
+
+#generate:hover, #help:hover {
+color: Black;
+background-color: LightGreen;}
+
+#generate:focus, #help:focus {
+outline: none;}
+
+#output {
+box-sizing: border-box;
+height: 30px;
+width: calc(100% - 170px);
+float: left;
+margin: 10px 0 10px 0;
 font-size: 1rem;
 border: none;
 background-color: WhiteSmoke;}
@@ -54,3 +67,6 @@ overflow: auto;}
 
 .blocklyTreeRow {
 padding-bottom: 3px !important;}
+
+.blocklyMainBackground {
+cursor: move;}

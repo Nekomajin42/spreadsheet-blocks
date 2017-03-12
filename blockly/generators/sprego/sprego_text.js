@@ -23,3 +23,11 @@ Blockly.JavaScript["sprego_length"] = function(block)
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
 	return ["hossz(" + text + ")", Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["sprego_search"] = function(block)
+{
+	var find = Blockly.JavaScript.valueToCode(block, "FIND", Blockly.JavaScript.ORDER_NONE || "");
+	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
+	var start = Blockly.JavaScript.valueToCode(block, "START", Blockly.JavaScript.ORDER_NONE || "");
+	return ["szöveg.keres(" + find + "; " + text + "; " + start + ")", Blockly.JavaScript.ORDER_NONE];
+};

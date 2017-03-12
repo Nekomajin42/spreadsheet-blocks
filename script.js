@@ -2,8 +2,9 @@ window.addEventListener("DOMContentLoaded", function()
 {
 	var workspace = Blockly.inject("blockly",
 	{
-		toolbox: document.getElementById("toolbox"),
-		comments: true,
+		toolbox: document.getElementById("toolbox").textContent,
+		collapse: false,
+		comments: false,
 		horizontalLayout: true,
 		scrollbars: true,
 		sounds: false,
@@ -16,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	});
 	
-	var xml_text = "<xml><block type='sprego_start' x='0' y='100'></block></xml>";
+	var xml_text = "<xml><block type='sprego_start'></block></xml>";
 	var xml = Blockly.Xml.textToDom(xml_text);
 	Blockly.Xml.domToWorkspace(xml, workspace);
 
@@ -31,5 +32,10 @@ window.addEventListener("DOMContentLoaded", function()
 	document.getElementById("output").addEventListener("click", function()
 	{
 		this.select();
+	});
+	
+	document.getElementById("help").addEventListener("click", function()
+	{
+		window.open("https://github.com/Nekomajin42/sprego-blocks");
 	});
 });
