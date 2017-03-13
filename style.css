@@ -55,9 +55,18 @@ height: 30px;
 width: calc(100% - 170px);
 float: left;
 margin: 10px 0 10px 0;
+padding: 1px 5px 1px 5px;
 font-size: 1rem;
-border: none;
-background-color: WhiteSmoke;}
+border: 2px solid Transparent;
+border-radius: 5px;
+background-color: WhiteSmoke;
+transition: border-color 1s;}
+
+#output.copy {
+border: 2px solid LightGreen;}
+
+#output::selection {
+background-color: Transparent;}
 
 section {
 box-sizing: border-box;
@@ -66,7 +75,13 @@ width: 100%;
 overflow: auto;}
 
 .blocklyTreeRow {
-padding-bottom: 3px !important;}
+margin: 0 0 5px 5px;
+padding: 2px 5px 5px 5px !important;
+border: none !important;
+border-radius: 5px;}
+
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+background-color: LightGreen !important;}
 
 .blocklyMainBackground {
 cursor: move;}

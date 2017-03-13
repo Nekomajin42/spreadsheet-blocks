@@ -11,7 +11,6 @@ Blockly.Blocks["sprego_start"] =
 	init: function()
 	{
 		this.setDeletable(false);
-		this.moveBy(0, 100);
 		this.setInputsInline(true);
 		this.appendValueInput("START")
 			.appendField("=");
@@ -27,7 +26,7 @@ Blockly.Blocks["sprego_statement"] =
 		this.setOutput(true);
 		this.appendValueInput("NEXT")
 			.appendField(new Blockly.FieldTextInput("kifejezés"), "STATEMENT");
-		this.setTooltip("Tetszőleges kifejezés (tartomány, matematikai művelet, logikai vizsgálat, stb.)");
+		this.setTooltip("Tetszőleges kifejezés (tartomány, matematikai művelet, logikai vizsgálat, stb.)\nEz a blokk helyettesítheti a többi kifejezés blokkot.");
 		this.setColour(color_misc);
 	}
 };
@@ -45,8 +44,7 @@ Blockly.Blocks["sprego_mathops"] =
 						   ["-", "-"],
 						   ["*", "*"],
 						   ["/", "/"],
-						   ["^", "^"],
-						   ["&", "&"]
+						   ["^", "^"]
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
 		this.setTooltip("Elvégzi a kiválasztott matematikai műveletet a bal és jobb oldalon megadott kifejezéssel.");
@@ -72,6 +70,21 @@ Blockly.Blocks["sprego_logicops"] =
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
 		this.setTooltip("Elvégzi a kiválasztott logikai műveletet a bal és jobb oldalon megadott kifejezéssel.");
+		this.setColour(color_misc);
+	}
+};
+
+Blockly.Blocks["sprego_concat"] =
+{
+	init: function()
+	{
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendValueInput("FIRST");
+		this.appendDummyInput()
+			.appendField("&");
+		this.appendValueInput("SECOND");
+		this.setTooltip("Két szövegdarabot összefűz egy szöveggé.");
 		this.setColour(color_misc);
 	}
 };

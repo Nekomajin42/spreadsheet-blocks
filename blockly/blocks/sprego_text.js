@@ -6,30 +6,20 @@ goog.require("Blockly.Blocks");
 
 var color_text = 180;
 
-Blockly.Blocks["sprego_left"] =
+Blockly.Blocks["sprego_left/right"] =
 {
 	init: function()
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("TEXT")
-			.appendField("bal");
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown([
+						   ["bal", "LEFT"],
+						   ["jobb", "RIGHT"]
+						]), "NAME");
+		this.appendValueInput("TEXT");
 		this.appendValueInput("N");
-		this.setTooltip("Egy szöveg elejéről megadott számú karaktert ad vissza.\n\n=bal(cellahivatkozás; [karakterszám])");
-		this.setColour(color_text);
-	}
-};
-
-Blockly.Blocks["sprego_right"] =
-{
-	init: function()
-	{
-		this.setInputsInline(true);
-		this.setOutput(true);
-		this.appendValueInput("TEXT")
-			.appendField("jobb");
-		this.appendValueInput("N");
-		this.setTooltip("Egy szöveg végéről megadott számú karaktert ad vissza.\n\n=jobb(cellahivatkozás; [karakterszám])");
+		this.setTooltip("Egy szöveg elejéről vagy végéről megadott számú karaktert ad vissza.\n\n=bal(cellahivatkozás; [karakterszám])\n=jobb(cellahivatkozás; [karakterszám])");
 		this.setColour(color_text);
 	}
 };
@@ -40,8 +30,9 @@ Blockly.Blocks["sprego_length"] =
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("TEXT")
+		this.appendDummyInput()
 			.appendField("hossz");
+		this.appendValueInput("TEXT");
 		this.setTooltip("Megszámolja, hogy egy szöveg hány karakterből áll.\n\n=hossz(cellahivatkozás)");
 		this.setColour(color_text);
 	}
@@ -53,10 +44,11 @@ Blockly.Blocks["sprego_search"] =
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("FIND")
+		this.appendDummyInput()
 			.appendField("szöveg.keres");
-		this.appendValueInput("TEXT")
-		this.appendValueInput("START")
+		this.appendValueInput("FIND");
+		this.appendValueInput("TEXT");
+		this.appendValueInput("START");
 		this.setTooltip("Visszaadja, hogy hanyadik karakternél kezdődik a keresett szövegdarab egy másik szövegben.\n\n=szöveg.keres(szövegdarab; szövegben; [kezdősorszám])");
 		this.setColour(color_text);
 	}

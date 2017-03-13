@@ -20,14 +20,9 @@ Blockly.JavaScript["sprego_match"] = function(block)
 	return ["hol.van(" + value + "; " + array +  "; " + type + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_row"] = function(block)
+Blockly.JavaScript["sprego_row/column"] = function(block)
 {
+	var name = (block.getFieldValue("NAME") === "ROW") ? "sor" : "oszlop";
 	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
-	return ["sor(" + index + ")", Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript["sprego_column"] = function(block)
-{
-	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
-	return ["oszlop(" + index + ")", Blockly.JavaScript.ORDER_NONE];
+	return [name + "(" + index + ")", Blockly.JavaScript.ORDER_NONE];
 };

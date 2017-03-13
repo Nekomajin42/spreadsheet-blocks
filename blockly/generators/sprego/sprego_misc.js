@@ -34,6 +34,13 @@ Blockly.JavaScript["sprego_logicops"] = function(block)
 	return ["(" + left + operator + right + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript["sprego_concat"] = function(block)
+{
+	var first = Blockly.JavaScript.valueToCode(block, "FIRST", Blockly.JavaScript.ORDER_NONE || "");
+	var second = Blockly.JavaScript.valueToCode(block, "SECOND", Blockly.JavaScript.ORDER_NONE || "");
+	return [first + "&" + second, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript["sprego_array"] = function(block)
 {
 	var start = Blockly.JavaScript.valueToCode(block, "START", Blockly.JavaScript.ORDER_NONE || "");

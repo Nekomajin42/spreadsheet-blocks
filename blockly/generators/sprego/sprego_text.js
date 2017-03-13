@@ -4,18 +4,12 @@ goog.provide('Blockly.JavaScript.sprego');
 
 goog.require('Blockly.JavaScript');
 
-Blockly.JavaScript["sprego_left"] = function(block)
+Blockly.JavaScript["sprego_left/right"] = function(block)
 {
+	var name = (block.getFieldValue("NAME") === "LEFT") ? "bal" : "jobb";
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
 	var n = Blockly.JavaScript.valueToCode(block, "N", Blockly.JavaScript.ORDER_NONE || "");
-	return ["bal(" + text + "; " + n + ")", Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript["sprego_right"] = function(block)
-{
-	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
-	var n = Blockly.JavaScript.valueToCode(block, "N", Blockly.JavaScript.ORDER_NONE || "");
-	return ["jobb(" + text + "; " + n + ")", Blockly.JavaScript.ORDER_NONE];
+	return [name + "(" + text + "; " + n + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript["sprego_length"] = function(block)

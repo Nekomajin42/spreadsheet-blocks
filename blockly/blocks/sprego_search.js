@@ -4,7 +4,7 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_search = 120;
+var color_search = 150;
 
 Blockly.Blocks["sprego_index"] =
 {
@@ -12,8 +12,9 @@ Blockly.Blocks["sprego_index"] =
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("ARRAY")
+		this.appendDummyInput()
 			.appendField("index");
+		this.appendValueInput("ARRAY");
 		this.appendValueInput("ROW");
 		this.appendValueInput("COLUMN");
 		this.setTooltip("Visszadja egy oszlop valahanyadik sorában, vagy egy sor valahanyadik oszlopában található értéket.\n\n=index(tartomány; [sorszám]; [oszlopszám])");
@@ -27,8 +28,9 @@ Blockly.Blocks["sprego_match"] =
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("VALUE")
+		this.appendDummyInput()
 			.appendField("hol.van");
+		this.appendValueInput("VALUE");
 		this.appendValueInput("ARRAY");
 		this.appendValueInput("TYPE");
 		this.setTooltip("Visszaadja, hogy a keresett érték egy oszlop tartománynak hanyadik sorában, vagy egy sor tartománynak hanyadik oszlopában van.\n\n=hol.van(keresett_érték; tartomány; [egyezés_típusa])");
@@ -36,28 +38,19 @@ Blockly.Blocks["sprego_match"] =
 	}
 };
 
-Blockly.Blocks["sprego_row"] =
+Blockly.Blocks["sprego_row/column"] =
 {
 	init: function()
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
-		this.appendValueInput("INDEX")
-			.appendField("sor");
-		this.setTooltip("Visszaadja egy cella sorszámát.\n\n=sor(cellahivatkozás)");
-		this.setColour(color_search);
-	}
-};
-
-Blockly.Blocks["sprego_column"] =
-{
-	init: function()
-	{
-		this.setInputsInline(true);
-		this.setOutput(true);
-		this.appendValueInput("INDEX")
-			.appendField("oszlop");
-		this.setTooltip("Visszaadja egy cella oszlopszámát.\n\n=oszlop(cellahivatkozás)");
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown([
+						   ["sor", "ROW"],
+						   ["oszlop", "COLUMN"]
+						]), "NAME");
+		this.appendValueInput("INDEX");
+		this.setTooltip("Visszaadja egy cella sorszámát vagy oszlopszámát.\n\n=sor(cellahivatkozás)\n=oszlop(cellahivatkozás)");
 		this.setColour(color_search);
 	}
 };
