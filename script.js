@@ -17,21 +17,21 @@ window.addEventListener("DOMContentLoaded", function()
 			wheel: false
 		}
 	});
-	workspace.addChangeListener(Blockly.Events.disableOrphans);
+	//workspace.addChangeListener(Blockly.Events.disableOrphans);
+	Blockly.BlockSvg.START_HAT = true;
 	
 	// auto backup/restore
 	var save = window.setInterval(function()
 	{
 		window.localStorage.autoSave = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
 	}, 10000);
-	if (window.localStorage.autoSave == null) // no session found
+	if (window.localStorage.autoSave == null) // no session found, create START block
 	{
-		// insert start block
-		var xml_text = "<xml><block type='sprego_start' x='0' y='100'></block></xml>";
+		var xml_text = "<xml><block type='sprego_start' id='sprego_start' x='0' y='100'></block></xml>";
 		var xml = Blockly.Xml.textToDom(xml_text);
 		Blockly.Xml.domToWorkspace(xml, workspace);
 	}
-	else // restore session
+	else // restore previous session
 	{
 		Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(window.localStorage.autoSave), workspace);
 	}
@@ -39,23 +39,26 @@ window.addEventListener("DOMContentLoaded", function()
 	// make the generator button work
 	document.getElementById("generate").addEventListener("click", function()
 	{
-		// get the code
-		var code = Blockly.JavaScript.workspaceToCode(workspace);
+		// get the code (only inside the start block)
+		var code = Blockly.JavaScript.blockToCode(workspace.getBlockById("sprego_start"));
 		
-		// fill the output
+		// fill the output field
 		var output = document.getElementById("output");
 		output.value = code;
 		
-		// copy to clipboard
-		output.select();
-		document.execCommand("copy");
-		
-		// animate output
-		output.classList.add("copy");
-		window.setTimeout(function(output)
+		if (code !== "") // no need to copy an empty string
 		{
-			document.getElementById("output").classList.remove("copy");
-		}, 1000);
+			// copy to clipboard
+			output.select();
+			document.execCommand("copy");
+			
+			// animate output
+			output.classList.add("copy");
+			window.setTimeout(function(output)
+			{
+				document.getElementById("output").classList.remove("copy");
+			}, 1000);
+		}
 	});
 	
 	// make the help button work

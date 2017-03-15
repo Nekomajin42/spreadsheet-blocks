@@ -4,7 +4,7 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_search = 150;
+var color_search = 120;
 
 Blockly.Blocks["sprego_index"] =
 {
@@ -51,6 +51,38 @@ Blockly.Blocks["sprego_row/column"] =
 						]), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip("Visszaadja egy cella sorszámát vagy oszlopszámát.\n\n=sor(cellahivatkozás)\n=oszlop(cellahivatkozás)");
+		this.setColour(color_search);
+	}
+};
+
+Blockly.Blocks["sprego_offset"] =
+{
+	init: function()
+	{
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField("eltolás");
+		this.appendValueInput("INDEX");
+		this.appendValueInput("ROWS");
+		this.appendValueInput("COLUMNS");
+		this.appendValueInput("HEIGHT");
+		this.appendValueInput("WIDTH");
+		this.setTooltip("Egy cella helyzetéhez képest valahány sorral és oszloppal eltolt cella hivatkozását adja vissza.\n\n=eltolás(cellahivatkozás; sorok_száma; oszlopok_száma; [magasság]; [szélesség])");
+		this.setColour(color_search);
+	}
+};
+
+Blockly.Blocks["sprego_transpose"] =
+{
+	init: function()
+	{
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField("transzponálás");
+		this.appendValueInput("ARRAY");
+		this.setTooltip("Egy tartomány sorait oszlopokká, oszlopait pedig sorokká alakítja.\n\n=transzponálás(tartomány)");
 		this.setColour(color_search);
 	}
 };

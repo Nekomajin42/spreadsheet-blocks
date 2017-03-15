@@ -6,8 +6,9 @@ goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript["sprego_start"] = function(block)
 {
-	var body = Blockly.JavaScript.valueToCode(block, "START", Blockly.JavaScript.ORDER_NONE || "");
-	return "=" + body;
+	var formula = Blockly.JavaScript.valueToCode(block, "FORMULA", Blockly.JavaScript.ORDER_NONE || "");
+	formula = (formula === "") ? "" : "=" + formula;
+	return formula;
 };
 
 Blockly.JavaScript["sprego_statement"] = function(block)
@@ -20,18 +21,24 @@ Blockly.JavaScript["sprego_statement"] = function(block)
 
 Blockly.JavaScript["sprego_mathops"] = function(block)
 {
+	var parenthesis = (block.getParent().type === "sprego_mathops" || block.getParent().type === "sprego_logicops") ? true : false;
 	var operator = block.getFieldValue("OPERATOR");
 	var left = Blockly.JavaScript.valueToCode(block, "LEFT", Blockly.JavaScript.ORDER_NONE || "");
+	left = (parenthesis) ? "(" + left : left;
 	var right = Blockly.JavaScript.valueToCode(block, "RIGHT", Blockly.JavaScript.ORDER_NONE || "");
-	return ["(" + left + operator + right + ")", Blockly.JavaScript.ORDER_NONE];
+	right = (parenthesis) ? right + ")" : right;
+	return [left + operator + right, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript["sprego_logicops"] = function(block)
 {
+	var parenthesis = (block.getParent().type === "sprego_mathops" || block.getParent().type === "sprego_logicops") ? true : false;
 	var operator = block.getFieldValue("OPERATOR");
 	var left = Blockly.JavaScript.valueToCode(block, "LEFT", Blockly.JavaScript.ORDER_NONE || "");
+	left = (parenthesis) ? "(" + left : left;
 	var right = Blockly.JavaScript.valueToCode(block, "RIGHT", Blockly.JavaScript.ORDER_NONE || "");
-	return ["(" + left + operator + right + ")", Blockly.JavaScript.ORDER_NONE];
+	right = (parenthesis) ? right + ")" : right;
+	return [left + operator + right, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript["sprego_concat"] = function(block)

@@ -19,8 +19,9 @@ Blockly.JavaScript["sprego_iserror/isblank"] = function(block)
 	return [name + "(" + index + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_int"] = function(block)
+Blockly.JavaScript["sprego_isnumber/islogical"] = function(block)
 {
+	var name = (block.getFieldValue("NAME") === "INT") ? "szám" : "logikai";
 	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
-	return ["szám(" + index + ")", Blockly.JavaScript.ORDER_NONE];
+	return [name + "(" + index + ")", Blockly.JavaScript.ORDER_NONE];
 };

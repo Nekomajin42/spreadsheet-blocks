@@ -4,7 +4,7 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_conditional = 120;
+var color_conditional = 90;
 
 Blockly.Blocks["sprego_iserror/isblank"] =
 {
@@ -23,16 +23,19 @@ Blockly.Blocks["sprego_iserror/isblank"] =
 	}
 };
 
-Blockly.Blocks["sprego_int"] =
+Blockly.Blocks["sprego_isnumber/islogical"] =
 {
 	init: function()
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("szám");
+			.appendField(new Blockly.FieldDropdown([
+						   ["szám", "INT"],
+						   ["logikai", "ISLOGICAL"]
+						]), "NAME");
 		this.appendValueInput("INDEX");
-		this.setTooltip("Ha a paraméterként megadott érték szám, akkor IGAZ értéket ad, egyébként HAMIS-at.\n\n=szám(cellahivatkozás)");
+		this.setTooltip("Ha a paraméterként megadott érték szám vagy logikai érték, akkor IGAZ értéket ad, egyébként HAMIS-at.\n\n=szám(cellahivatkozás)\n=logikai(cellahivatkozás)");
 		this.setColour(color_conditional);
 	}
 };

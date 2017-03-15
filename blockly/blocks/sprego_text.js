@@ -53,3 +53,20 @@ Blockly.Blocks["sprego_search"] =
 		this.setColour(color_text);
 	}
 };
+
+Blockly.Blocks["sprego_substitute"] =
+{
+	init: function()
+	{
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField("helyette");
+		this.appendValueInput("TEXT");
+		this.appendValueInput("OLD_TEXT");
+		this.appendValueInput("NEW_TEXT");
+		this.appendValueInput("N");
+		this.setTooltip("Egy szövegben egy szövegdarabot egy másik szövegdarabra cserél.\n\n=helyette(szövegben; régi_szövegdarab; új_szövegdarab; [melyiket])");
+		this.setColour(color_text);
+	}
+};

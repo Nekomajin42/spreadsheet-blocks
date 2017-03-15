@@ -60,13 +60,11 @@ font-size: 1rem;
 border: 2px solid Transparent;
 border-radius: 5px;
 background-color: WhiteSmoke;
-transition: border-color 1s;}
+transition: border-color 1s;
+cursor: text;}
 
 #output.copy {
 border: 2px solid LightGreen;}
-
-#output::selection {
-background-color: Transparent;}
 
 section {
 box-sizing: border-box;

@@ -6,30 +6,19 @@ goog.require("Blockly.Blocks");
 
 var color_math = 240;
 
-Blockly.Blocks["sprego_sum"] =
+Blockly.Blocks["sprego_sum/avg"] =
 {
 	init: function()
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("szum");
+			.appendField(new Blockly.FieldDropdown([
+						   ["szum", "SUM"],
+						   ["átlag", "AVG"]
+						]), "NAME");
 		this.appendValueInput("ARRAY");
-		this.setTooltip("Összeadja a paraméterként megadott tartomány(ok) értékeit.\n\n=szum(tartomány1; [tartomány2]; ...)");
-		this.setColour(color_math);
-	}
-};
-
-Blockly.Blocks["sprego_avg"] =
-{
-	init: function()
-	{
-		this.setInputsInline(true);
-		this.setOutput(true);
-		this.appendDummyInput()
-			.appendField("átlag");
-		this.appendValueInput("ARRAY");
-		this.setTooltip("Kiszámítja a paraméterként megadott tartomány(ok) értékeinek átlagát.\n\n=átlag(tartomány1; [tartomány2]; ...)");
+		this.setTooltip("Kiszámítja a paraméterként megadott tartomány(ok) értékeinek összegét vagy átlagát.\n\n=szum(tartomány1; [tartomány2]; ...)\n=átlag(tartomány1; [tartomány2]; ...)");
 		this.setColour(color_math);
 	}
 };
@@ -84,6 +73,24 @@ Blockly.Blocks["sprego_round/rounddown/roundup"] =
 		this.appendValueInput("VALUE");
 		this.appendValueInput("N");
 		this.setTooltip("A paraméterként megadott számot kerekíti a matematika szabályai szerint vagy az alulról vagy felülről legközelebb eső számra.\n\n=kerekítés(érték, hány_számjegyre)\n=kerek.le(érték, hány_számjegyre)\n=kerek.fel(érték, hány_számjegyre)");
+		this.setColour(color_math);
+	}
+};
+
+Blockly.Blocks["sprego_mod/pow"] =
+{
+	init: function()
+	{
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown([
+						   ["maradék", "MOD"],
+						   ["hatvány", "POWER"]
+						]), "NAME");
+		this.appendValueInput("VALUE");
+		this.appendValueInput("N");
+		this.setTooltip("Visszaadja a paraméterként megadott szám n-nel való osztási maradékát vagy n-edik hatványát.\n\n=maradék(szám; n)\n=hatvány(szám; n)");
 		this.setColour(color_math);
 	}
 };

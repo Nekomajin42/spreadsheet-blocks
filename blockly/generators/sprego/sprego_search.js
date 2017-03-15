@@ -26,3 +26,19 @@ Blockly.JavaScript["sprego_row/column"] = function(block)
 	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
 	return [name + "(" + index + ")", Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.JavaScript["sprego_offset"] = function(block)
+{
+	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
+	var rows = Blockly.JavaScript.valueToCode(block, "ROWS", Blockly.JavaScript.ORDER_NONE || "");
+	var columns = Blockly.JavaScript.valueToCode(block, "COLUMNS", Blockly.JavaScript.ORDER_NONE || "");
+	var hight = Blockly.JavaScript.valueToCode(block, "HEIGHT", Blockly.JavaScript.ORDER_NONE || "");
+	var width = Blockly.JavaScript.valueToCode(block, "WIDTH", Blockly.JavaScript.ORDER_NONE || "");
+	return ["eltolás(" + index + "; " + rows + "; " + columns + "; " + height + "; " + width + ")", Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.JavaScript["sprego_transpose"] = function(block)
+{
+	var array = Blockly.JavaScript.valueToCode(block, "ARRAY", Blockly.JavaScript.ORDER_NONE || "");
+	return ["transzponálás(" + array + ")", Blockly.JavaScript.ORDER_NONE];
+};

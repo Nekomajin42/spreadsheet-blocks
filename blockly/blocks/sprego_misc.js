@@ -12,9 +12,9 @@ Blockly.Blocks["sprego_start"] =
 	{
 		this.setDeletable(false);
 		this.setInputsInline(true);
-		this.appendValueInput("START")
+		this.appendValueInput("FORMULA")
 			.appendField("=");
-		this.setTooltip("Itt kezdődik a kód");
+		this.setTooltip("Itt kezdődik a kód. Ami ezen a blokkon kívül van, azt a program nem értelmezi.");
 		this.setColour(color_misc);
 	}
 };
