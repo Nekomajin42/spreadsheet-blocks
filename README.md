@@ -6,7 +6,7 @@ Its goal is to help solving real life data processing problems with spreadsheet 
 The restriction of the available set of functions helps people to develop their functional programming skills.
 
 Using Blockly as a visual representation helps end-user programmers to learn how to embed formulas into each other.
-Each block represents a function, a statement or a mathematical/logical operation.
+Each block represents a function, an expression or a mathematical/logical operation.
 The application generates syntactically correct Excel code, but does not evaluate it.
 
 Sprego Blocks is still an experimental application.
