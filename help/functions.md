@@ -5,6 +5,8 @@
 |---|---|
 |sum|szum|
 |average|átlag|
+|count|darab|
+|product|szorzat|
 |min|min|
 |max|max|
 |small|kicsi|
@@ -15,6 +17,8 @@
 |mod|maradék|
 |power|hatvány|
 |sqrt|gyök|
+|abs|abs|
+|fact|fakt|
 |rand|vél|
 
 ## Logical
