@@ -6,7 +6,7 @@ goog.require("Blockly.Blocks");
 
 var color_math = 240;
 
-Blockly.Blocks["sprego_sum/avg"] =
+Blockly.Blocks["sprego_sum/avg/count/product"] =
 {
 	init: function()
 	{
@@ -15,10 +15,12 @@ Blockly.Blocks["sprego_sum/avg"] =
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown([
 						   ["szum", "SUM"],
-						   ["átlag", "AVG"]
+						   ["átlag", "AVG"],
+						   ["darab", "COUNT"],
+						   ["szorzat", "PRODUCT"]
 						]), "NAME");
 		this.appendValueInput("ARRAY");
-		this.setTooltip("Kiszámítja a paraméterként megadott tartomány(ok) értékeinek összegét vagy átlagát.\n\n=szum(tartomány1; [tartomány2]; ...)\n=átlag(tartomány1; [tartomány2]; ...)");
+		this.setTooltip("Kiszámítja a paraméterként megadott tartomány(ok) értékeinek összegét, átlagát, nem üres celláinak számát vagy szorzatát.\n\n=szum(tartomány1; [tartomány2]; ...)\n=átlag(tartomány1; [tartomány2]; ...)\n=darab(tartomány1; [tartomány2]; ...)\n=szorzat(tartomány1; [tartomány2]; ...)");
 		this.setColour(color_math);
 	}
 };
@@ -95,16 +97,20 @@ Blockly.Blocks["sprego_mod/pow"] =
 	}
 };
 
-Blockly.Blocks["sprego_sqrt"] =
+Blockly.Blocks["sprego_sqrt/abs/fact"] =
 {
 	init: function()
 	{
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("gyök");
+			.appendField(new Blockly.FieldDropdown([
+						   ["gyök", "SQRT"],
+						   ["abs", "ABS"],
+						   ["fakt", "FACT"]
+						]), "NAME");
 		this.appendValueInput("VALUE");
-		this.setTooltip("Kiszámolja a paraméterként megadott szám négyzetgyökét.\n\n=gyök(érték)");
+		this.setTooltip("Kiszámolja a paraméterként megadott szám négyzetgyökét, abszolút értékét vagy faktoriálisát.\n\n=gyök(érték)\n=abs(érték)\n=fakt(érték)");
 		this.setColour(color_math);
 	}
 };

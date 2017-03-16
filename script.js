@@ -17,7 +17,6 @@ window.addEventListener("DOMContentLoaded", function()
 			wheel: false
 		}
 	});
-	//workspace.addChangeListener(Blockly.Events.disableOrphans);
 	Blockly.BlockSvg.START_HAT = true;
 	
 	// auto backup/restore
@@ -61,9 +60,48 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	});
 	
-	// make the help button work
-	document.getElementById("help").addEventListener("click", function()
+	// make the menu work
+	document.getElementById("menu-button").addEventListener("click", function()
 	{
-		window.open("https://github.com/Nekomajin42/sprego-blocks");
+		document.getElementById("menu").classList.add("open");
+	});
+	document.body.addEventListener("click", function(e)
+	{
+		if (e.target.id !== "menu-button")
+		{
+			document.getElementById("menu").classList.remove("open");
+		}
+	});
+	
+	// save the workspace to XML
+	document.getElementById("save").addEventListener("click", function()
+	{
+		var xml = Blockly.Xml.workspaceToDom(workspace);
+		var xml_text = Blockly.Xml.domToPrettyText(xml);
+		var file = new File([xml_text], "code.sb", {type: "text/xml;charset=utf-8"});
+		saveAs(file, "code.sb", true);
+	});
+	
+	// open the workspace from XML
+	document.getElementById("open").addEventListener("click", function()
+	{
+		// create input and load file(s)
+		var input = document.createElement("input");
+		input.type = "file";
+		input.accept = ".sb";
+		input.multiple = false;
+		input.click();
+		input.addEventListener("change", function(e)
+		{
+			var reader = new FileReader();
+			reader.onload = function(e)
+			{
+				Blockly.mainWorkspace.clear(); // clear the workspace
+				var xml_text = e.target.result; // load new code
+				var xml = Blockly.Xml.textToDom(xml_text);
+				Blockly.Xml.domToWorkspace(xml, workspace);
+			}
+			reader.readAsText(input.files[0], "utf-8");
+		});
 	});
 });

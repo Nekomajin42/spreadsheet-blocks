@@ -19,7 +19,7 @@ Blockly.Blocks["sprego_start"] =
 	}
 };
 
-Blockly.Blocks["sprego_statement"] =
+Blockly.Blocks["sprego_expression"] =
 {
 	init: function()
 	{

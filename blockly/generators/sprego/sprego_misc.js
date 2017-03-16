@@ -11,7 +11,7 @@ Blockly.JavaScript["sprego_start"] = function(block)
 	return formula;
 };
 
-Blockly.JavaScript["sprego_statement"] = function(block)
+Blockly.JavaScript["sprego_expression"] = function(block)
 {
 	var statement = block.getFieldValue("STATEMENT");
 	var next = Blockly.JavaScript.valueToCode(block, "NEXT", Blockly.JavaScript.ORDER_NONE || "");

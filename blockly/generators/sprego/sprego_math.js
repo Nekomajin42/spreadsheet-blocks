@@ -4,9 +4,10 @@ goog.provide('Blockly.JavaScript.sprego');
 
 goog.require('Blockly.JavaScript');
 
-Blockly.JavaScript["sprego_sum/avg"] = function(block)
+Blockly.JavaScript["sprego_sum/avg/count/product"] = function(block)
 {
-	var name = (block.getFieldValue("NAME") === "SUM") ? "szum" : "átlag";
+	var name = block.getFieldValue("NAME");
+	name = (name === "SUM") ? "szum" : ((name === "AVG") ? "átlag" : ((name === "COUNT") ? "darab" : "szorzat"));
 	var array = Blockly.JavaScript.valueToCode(block, "ARRAY", Blockly.JavaScript.ORDER_NONE || "");
 	return [name + "(" + array + ")", Blockly.JavaScript.ORDER_NONE];
 };
@@ -43,10 +44,12 @@ Blockly.JavaScript["sprego_mod/pow"] = function(block)
 	return [name + "(" + value + "; " + n + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_sqrt"] = function(block)
+Blockly.JavaScript["sprego_sqrt/abs/fact"] = function(block)
 {
+	var name = block.getFieldValue("NAME");
+	name = (name === "SQRT") ? "gyök" : ((name === "ABS") ? "abs" : "fakt");
 	var value = Blockly.JavaScript.valueToCode(block, "VALUE", Blockly.JavaScript.ORDER_NONE || "");
-	return ["gyök(" + value + ")", Blockly.JavaScript.ORDER_NONE];
+	return [name + "(" + value + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript["sprego_rand"] = function(block)
