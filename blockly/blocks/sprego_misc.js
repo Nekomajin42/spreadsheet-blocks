@@ -4,17 +4,18 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_misc = 270;
+var color_misc = "#008000";
 
 Blockly.Blocks["sprego_start"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_start");
 		this.setDeletable(false);
 		this.setInputsInline(true);
 		this.appendValueInput("FORMULA")
 			.appendField("=");
-		this.setTooltip("Itt kezdődik a kód. Ami ezen a blokkon kívül van, azt a program nem értelmezi.");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };
@@ -23,10 +24,11 @@ Blockly.Blocks["sprego_expression"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_expression");
 		this.setOutput(true);
 		this.appendValueInput("NEXT")
-			.appendField(new Blockly.FieldTextInput("kifejezés"), "STATEMENT");
-		this.setTooltip("Tetszőleges kifejezés (tartomány, matematikai művelet, logikai vizsgálat, stb.)\nEz a blokk helyettesítheti a többi kifejezés blokkot.");
+			.appendField(new Blockly.FieldTextInput(locale.name), "STATEMENT");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };
@@ -35,6 +37,7 @@ Blockly.Blocks["sprego_mathops"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_mathops");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendValueInput("LEFT");
@@ -47,15 +50,16 @@ Blockly.Blocks["sprego_mathops"] =
 						   ["^", "^"]
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
-		this.setTooltip("Elvégzi a kiválasztott matematikai műveletet a bal és jobb oldalon megadott kifejezéssel.");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };
 
-Blockly.Blocks["sprego_logicops"] =
+Blockly.Blocks["sprego_relops"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_relops");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendValueInput("LEFT");
@@ -69,7 +73,7 @@ Blockly.Blocks["sprego_logicops"] =
 						   ["<>", "<>"]
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
-		this.setTooltip("Elvégzi a kiválasztott logikai műveletet a bal és jobb oldalon megadott kifejezéssel.");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };
@@ -78,13 +82,14 @@ Blockly.Blocks["sprego_concat"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_concat");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendValueInput("FIRST");
 		this.appendDummyInput()
 			.appendField("&");
 		this.appendValueInput("SECOND");
-		this.setTooltip("Két szövegdarabot összefűz egy szöveggé.");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };
@@ -93,13 +98,45 @@ Blockly.Blocks["sprego_array"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_array");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendValueInput("START");
 		this.appendDummyInput()
 			.appendField(":");
 		this.appendValueInput("END");
-		this.setTooltip("Kijelöl egy tartományt az első és utolsó cella hivatkozása alapján.");
+		this.setTooltip(locale.help);
+		this.setColour(color_misc);
+	}
+};
+
+Blockly.Blocks["sprego_absoluteref"] =
+{
+	init: function()
+	{
+		var locale = getBlockLocale("sprego_absoluteref");
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown(locale.name), "WHICH");
+		this.appendValueInput("INDEX");
+		this.setTooltip(locale.help);
+		this.setColour(color_misc);
+	}
+};
+
+Blockly.Blocks["sprego_externalref"] =
+{
+	init: function()
+	{
+		var locale = getBlockLocale("sprego_externalref");
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendValueInput("WORKSHEET");
+		this.appendDummyInput()
+			.appendField("!");
+		this.appendValueInput("ARRAY");
+		this.setTooltip(locale.help);
 		this.setColour(color_misc);
 	}
 };

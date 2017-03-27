@@ -85,22 +85,7 @@ background-color: WhiteSmoke;}
 #menu.open {
 display: block;}
 
-/*#menu::before {
-content: "";
-display: block;
-position: relative;
-top: -7.5px;
-left: 87px;
-z-index: 101;
-width: 10px;
-height: 10px;
-border-top: 2px solid Green;
-border-right: 2px solid Green;
-border-top-right-radius: 5px;
-background-color: WhiteSmoke;
-transform: rotate(-45deg);}*/
-
-#save, #open, #url {
+.menu-item {
 box-sizing: border-box;
 display: block;
 width: 100px;
@@ -113,17 +98,27 @@ border: none;
 border-radius: 2px;
 background-color: WhiteSmoke;}
 
-#save:hover, #open:hover, #url:hover {
+.menu-item:hover {
 background-color: LightGreen;}
 
-#save:focus, #open:focus, #url:focus {
+.menu-item:focus {
 outline: none;}
+
+#menu hr {
+margin: 0 3px 0 3px;
+width: 100px;
+height: 2px;
+border: none;
+border-radius: 1px;
+background-color: Green;}
 
 section {
 box-sizing: border-box;
 height: calc(100% - 55px);
 width: 100%;
 overflow: auto;}
+
+/* === Blockly CSS hacks === */
 
 .blocklyTreeRow {
 margin: 0 0 5px 5px;
@@ -136,3 +131,15 @@ background-color: LightGreen !important;}
 
 .blocklyMainBackground {
 cursor: move;}
+
+.blocklyWidgetDiv {
+max-height: 120px;}
+
+.blocklyTooltipDiv {
+padding: 5px;
+font-size: 0.8rem;
+line-height: 150%;
+opacity: 1;
+border: 2px solid Grey;
+border-radius: 2px;
+background-color: White;}

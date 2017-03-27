@@ -4,22 +4,20 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_text = 180;
+var color_text = "#FF0000";
 
 Blockly.Blocks["sprego_left/right"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_left/right");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField(new Blockly.FieldDropdown([
-						   ["bal", "LEFT"],
-						   ["jobb", "RIGHT"]
-						]), "NAME");
+			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("TEXT");
 		this.appendValueInput("N");
-		this.setTooltip("Egy szöveg elejéről vagy végéről megadott számú karaktert ad vissza.\n\n=bal(cellahivatkozás; [karakterszám])\n=jobb(cellahivatkozás; [karakterszám])");
+		this.setTooltip(locale.help);
 		this.setColour(color_text);
 	}
 };
@@ -28,12 +26,13 @@ Blockly.Blocks["sprego_length"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_length");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("hossz");
+			.appendField(locale.name);
 		this.appendValueInput("TEXT");
-		this.setTooltip("Megszámolja, hogy egy szöveg hány karakterből áll.\n\n=hossz(cellahivatkozás)");
+		this.setTooltip(locale.help);
 		this.setColour(color_text);
 	}
 };
@@ -42,14 +41,15 @@ Blockly.Blocks["sprego_search"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_search");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("szöveg.keres");
+			.appendField(locale.name);
 		this.appendValueInput("FIND");
 		this.appendValueInput("TEXT");
 		this.appendValueInput("START");
-		this.setTooltip("Visszaadja, hogy hanyadik karakternél kezdődik a keresett szövegdarab egy másik szövegben.\n\n=szöveg.keres(szövegdarab; szövegben; [kezdősorszám])");
+		this.setTooltip(locale.help);
 		this.setColour(color_text);
 	}
 };
@@ -58,15 +58,16 @@ Blockly.Blocks["sprego_substitute"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_substitute");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("helyette");
+			.appendField(locale.name);
 		this.appendValueInput("TEXT");
 		this.appendValueInput("OLD_TEXT");
 		this.appendValueInput("NEW_TEXT");
 		this.appendValueInput("N");
-		this.setTooltip("Egy szövegben egy szövegdarabot egy másik szövegdarabra cserél.\n\n=helyette(szövegben; régi_szövegdarab; új_szövegdarab; [melyiket])");
+		this.setTooltip(locale.help);
 		this.setColour(color_text);
 	}
 };

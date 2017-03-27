@@ -13,7 +13,8 @@
 		<script src="blockly/blockly_compressed.js" type="text/javascript"></script>
 		<script src="blockly/javascript_compressed.js" type="text/javascript"></script>
 		<script src="blockly/blocks_compressed.js" type="text/javascript"></script>
-		<script src="blockly/msg/js/hu.js"></script>
+		<script src="blockly/msg/sprego_lang.json" type="text/javascript"></script>
+		<script src="blockly/msg/js/hu.js" type="text/javascript"></script>
 		
 		<!-- blocks -->
 		<script src="blockly/blocks/sprego_misc.js" type="text/javascript"></script>
@@ -40,22 +41,27 @@
 				<input type="text" id="output" readonly />
 				<input type="button" id="menu-button" value="&#x22ee;" title="Menü" />
 				<fieldset id="menu">
-					<input type="button" id="save" value="Mentés" title="XML-be menti a kódot" />
-					<input type="button" id="open" value="Megnyitás" title="Megnyitja a kódot XML-ből" />
+					<input type="button" class="menu-item" id="save" value="Mentés" title="Kód mentése XML-be" />
+					<input type="button" class="menu-item" id="open" value="Megnyitás" title="Kód megnyitása XML-ből" />
+					<!--<input type="button" class="menu-item" id="url" value="URL" title="Megosztható URL generálása" />-->
+					<hr />
+					<input type="button" class="menu-item" id="help" value="Súgó" title="Súgó megnyitása" />
 				</fieldset>
 			</form>
 			<section id="blockly"></section>
 		</main>
 		<script id="toolbox" type="application/xml">
 			<xml>
-				<category name="Kifejezések" colour="270" expanded="true">
+				<category name="Kifejezések" colour="#008000" expanded="true">
 					<block type="sprego_expression"></block>
 					<block type="sprego_mathops"></block>
-					<block type="sprego_logicops"></block>
+					<block type="sprego_relops"></block>
 					<block type="sprego_concat"></block>
 					<block type="sprego_array"></block>
+					<block type="sprego_absoluteref"></block>
+					<block type="sprego_externalref"></block>
 				</category>
-				<category name="Matematikai függvények" colour="240">
+				<category name="Matematikai függvények" colour="#00FF00">
 					<block type="sprego_sum/avg/count/product"></block>
 					<block type="sprego_min/max"></block>
 					<block type="sprego_small/large"></block>
@@ -64,33 +70,33 @@
 					<block type="sprego_sqrt/abs/fact"></block>
 					<block type="sprego_rand"></block>
 				</category>
-				<category name="Logikai függvények" colour="210">
+				<category name="Logikai függvények" colour="#800000">
 					<block type="sprego_if"></block>
 					<block type="sprego_and/or"></block>
 					<block type="sprego_not"></block>
 				</category>
-				<category name="Szöveg függvények" colour="180">
+				<category name="Szöveg függvények" colour="#FF0000">
 					<block type="sprego_left/right"></block>
 					<block type="sprego_length"></block>
 					<block type="sprego_search"></block>
 					<block type="sprego_substitute"></block>
 				</category>
-				<category name="Dátum függvények" colour="150">
+				<category name="Dátum függvények" colour="#000080">
 					<block type="sprego_date/time"></block>
 					<block type="sprego_year/month/day"></block>
 					<block type="sprego_hour/minute/second"></block>
 					<block type="sprego_today/now"></block>
 				</category>
-				<category name="Kereső függvények" colour="120">
+				<category name="Kereső függvények" colour="#0000FF">
 					<block type="sprego_index"></block>
 					<block type="sprego_match"></block>
 					<block type="sprego_row/column"></block>
 					<block type="sprego_offset"></block>
 					<block type="sprego_transpose"></block>
 				</category>
-				<category name="Információs függvények" colour="90">
+				<category name="Információs függvények" colour="#000000">
 					<block type="sprego_iserror/isblank"></block>
-					<block type="sprego_isnumber/islogical"></block>
+					<block type="sprego_isnumber/islogical/istext"></block>
 				</category>
 			</xml>
 		</script>

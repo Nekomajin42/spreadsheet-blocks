@@ -1,0 +1,487 @@
+var lang_data = {
+	meta: {
+		authors: {
+			en: "Tóth Róbert",
+			hu: "Tóth Róbert"
+		},
+		separator: {
+			en: ",",
+			hu: ";"
+		}
+	},
+	gui: {
+	},
+	blocks: {
+		/* expressions */
+		"sprego_start": {
+			en: {
+				help: "This is the beginning of the code. Everything you place outside of this block won't be parsed."
+			},
+			hu: {
+				help: "Itt kezdődik a kód. Ami ezen a blokkon kívül van, azt a program nem értelmezi."
+			}
+		},
+		"sprego_expression": {
+			en: {
+				name: "expression",
+				help: "Any exression (array, mathematical or logical expression, etc.)\n\
+					This block can substitute the other expression blocks."
+			},
+			hu: {
+				name: "kifejezés",
+				help: "Tetszőleges kifejezés (tartomány, matematikai művelet, logikai vizsgálat, stb.)\n\
+					Ez a blokk helyettesítheti a többi kifejezés blokkot."
+			}
+		},
+		"sprego_mathops": {
+			en: {
+				help: "Executes the selected mathematical operation with the given expressions."
+			},
+			hu: {
+				help: "Elvégzi a kiválasztott matematikai műveletet a bal és jobb oldalon megadott kifejezéssel."
+			}
+		},
+		"sprego_relops": {
+			en: {
+				help: "Executes the selected relational operation with the given expressions."
+			},
+			hu: {
+				help: "Elvégzi a kiválasztott relációs műveletet a bal és jobb oldalon megadott kifejezéssel."
+			}
+		},
+		"sprego_concat": {
+			en: {
+				help: "Concatenates two strings."
+			},
+			hu: {
+				help: "Két szövegdarabot összefűz egy szöveggé."
+			}
+		},
+		"sprego_array": {
+			en: {
+				help: "Defines an array by the indexes of its top left and bottom right cells."
+			},
+			hu: {
+				help: "Meghatároz egy tartományt a bal felső és a jobb alsó celláinak hivatkozása alapján."
+			}
+		},
+		"sprego_absoluteref": {
+			en: {
+				name: [["None constant", "NONE"],
+					   ["Constant column", "COLUMN"],
+					   ["Constant row", "ROW"],
+					   ["Both constant", "BOTH"]],
+				help: "Creates a relative, absolute or mixed cell reference."
+			},
+			hu: {
+				name: [["Nincs rögzítés", "NONE"],
+					   ["Rögzített oszlop", "COLUMN"],
+					   ["Rögzített sor", "ROW"],
+					   ["Mindkettő rögzített", "BOTH"]],
+				help: "Létrehoz egy relatív, abszolút vagy kevert cellahivatkozást."
+			}
+		},
+		"sprego_externalref": {
+			en: {
+				help: "Creates a reference to a cell or array from an other worksheet."
+			},
+			hu: {
+				help: "Létrehoz egy hivatkozást egy másik munkalapon található cellára vagy tartományra."
+			}
+		},
+		/* math */
+		"sprego_sum/avg/count/product": {
+			en: {
+				name: [["sum", "SUM"],
+					   ["average", "AVG"],
+					   ["count", "COUNT"],
+					   ["product", "PRODUCT"]],
+				help: "Calculates the sum, average, count or product of the given array(s).\n\
+					=sum(array1, [array2], ...)\n\
+					=average(array1, [array2], ...)\n\
+					=count(array1, [array2], ...)\n\
+					=product(array1, [array2], ...)"
+			},
+			hu: {
+				name: [["szum", "SUM"],
+					   ["átlag", "AVG"],
+					   ["darab", "COUNT"],
+					   ["szorzat", "PRODUCT"]],
+				help: "Kiszámítja a paraméterként megadott tartomány(ok) értékeinek összegét, átlagát, nem üres celláinak számát vagy szorzatát.\n\
+					=szum(tartomány1; [tartomány2]; ...)\n\
+					=átlag(tartomány1; [tartomány2]; ...)\n\
+					=darab(tartomány1; [tartomány2]; ...)\n\
+					=szorzat(tartomány1; [tartomány2]; ...)"
+			}
+		},
+		"sprego_min/max": {
+			en: {
+				name: [["min", "MIN"],
+					   ["max", "MAX"]],
+				help: "Finds the smallest or largest value in the given array(s).\n\
+					=min(array1, [array2], ...)\n\
+					=max(array1, [array2], ...)"
+			},
+			hu: {
+				name: [["min", "MIN"],
+					   ["max", "MAX"]],
+				help: "Megkeresi a paraméterként megadott tartomány(ok) legkisebb vagy legnagyobb értékét.\n\
+					=min(tartomány1; [tartomány2]; ...)\n\
+					=max(tartomány1; [tartomány2]; ...)"
+			}
+		},
+		"sprego_small/large": {
+			en: {
+				name: [["small", "SMALL"],
+					   ["large", "LARGE"]],
+				help: "Finds the n-th smallest or largest value in the given array(s).\n\
+					=small(array, n)\n\
+					=large(array, n)"
+			},
+			hu: {
+				name: [["kicsi", "SMALL"],
+					   ["nagy", "LARGE"]],
+				help: "Megkeresi a paraméterként megadott tartomány valahanyadik legkisebb vagy legnagyobb értékét.\n\
+					=kicsi(tartomány; hanyadik)\n\
+					=nagy(tartomány; hanyadik)"
+			}
+		},
+		"sprego_round/rounddown/roundup": {
+			en: {
+				name: [["round", "ROUND"],
+					   ["rounddown", "ROUNDDOWN"],
+					   ["roundup", "ROUNDUP"]],
+				help: "Rounds the given number to the given digit, or to the previous or next value.\n\
+					=round(number, number_of_digits)\n\
+					=rounddown(number, number_of_digits)\n\
+					=roundup(number, number_of_digits)"
+			},
+			hu: {
+				name: [["kerekítés", "ROUND"],
+					   ["kerek.le", "ROUNDDOWN"],
+					   ["kerek.fel", "ROUNDUP"]],
+				help: "A paraméterként megadott számot a megadott számjegyekre kerekíti a matematika szabályai szerint vagy az alulról vagy felülről legközelebb eső számra.\n\
+					=kerekítés(szám; hány_számjegyre)\n\
+					=kerek.le(szám; hány_számjegyre)\n\
+					=kerek.fel(szám; hány_számjegyre)"
+			}
+		},
+		"sprego_mod/pow": {
+			en: {
+				name: [["mod", "MOD"],
+					   ["power", "POWER"]],
+				help: "Returns the remainder of the given value divided by n, or the result of th given value on the power of n.\n\
+					=mod(number, n)\n\
+					=pow(number, n)"
+			},
+			hu: {
+				name: [["maradék", "MOD"],
+					   ["hatvány", "POWER"]],
+				help: "Visszaadja a paraméterként megadott szám n-nel való osztási maradékát vagy n-edik hatványát.\n\
+					=maradék(szám; n)\n\
+					=hatvány(szám; n)"
+			}
+		},
+		"sprego_sqrt/abs/fact": {
+			en: {
+				name: [["sqrt", "SQRT"],
+					   ["abs", "ABS"],
+					   ["fact", "FACT"]],
+				help: "Returns the square root, the absolute value or the factorial of the given number.\n\
+					=sqrt(number)\n\
+					=abs(number)\n\
+					=fact(number)",
+			},
+			hu: {
+				name: [["gyök", "SQRT"],
+					   ["abs", "ABS"],
+					   ["fakt", "FACT"]],
+				help: "Kiszámolja a paraméterként megadott szám négyzetgyökét, abszolút értékét vagy faktoriálisát.\n\
+					=gyök(szám)\n\
+					=abs(szám)\n\
+					=fakt(szám)"
+			}
+		},
+		"sprego_rand": {
+			en: {
+				name: "rand",
+				help: "Returns a random decimal fraction between 0 and 1.\n\
+					=rand()"
+			},
+			hu: {
+				name: "vél",
+				help: "0 és 1 közötti véletlenszerű tizedestörtet ad vissza.\n\
+					=vél()"
+			}
+		},
+		/* logical */
+		"sprego_if": {
+			en: {
+				name: "if",
+				help: "Evaluates the given logical expression, and returns with the second paramter, if it is true, or the third, if it is false.\n\
+					=if(logical_expression, [reult_if_true], [result_if_false])"
+			},
+			hu: {
+				name: "ha",
+				help: "Ha az első paraméterként megadott logikai kifejezés igaz, akkor a második, ha hamis, akkor a harmadik paramétert írja a cellába.\n\
+					=ha(logikai_kifejezés; [érték_ha_igaz]; [érték_ha_hamis])"
+			}
+		},
+		"sprego_and/or": {
+			en: {
+				name: [["and", "AND"],
+					   ["or", "OR"]],
+				help: "Executes the logical AND or OR operation between the given expressions.\n\
+					=and(expression1, [expression2], ...)\n\
+					=or(expression1, [expression2], ...)"
+			},
+			hu: {
+				name: [["és", "AND"],
+					   ["vagy", "OR"]],
+				help: "Elvégzi a logikai ÉS illetve VAGY műveletet a megadott kifejezések között.\n\
+					=és(kifejezés1; [kifejezés2]; ...)\n\
+					=vagy(kifejezés1; [kifejezés2]; ...)"
+			}
+		},
+		"sprego_not": {
+			en: {
+				name: "not",
+				help: "Changes the result of a logical expression from TRUE to FALSE, and from FALSE to TRUE.\n\
+					=not(expression)"
+			},
+			hu: {
+				name: "nem",
+				help: "A paraméterként kapott logikai kifejezés eredményét IGAZ-ról HAMIS-ra, HAMIS-ról IGAZ-ra változtatja.\n\
+					=nem(kifejezés)"
+			}
+		},
+		/* text */
+		"sprego_left/right": {
+			en: {
+				name: [["left", "LEFT"],
+					   ["right", "RIGHT"]],
+				help: "Returns the first n characters from the beginning or the end of a text.\n\
+					=left(text, [n])\n\
+					=right(text, [n])"
+			},
+			hu: {
+				name: [["bal", "LEFT"],
+					   ["jobb", "RIGHT"]],
+				help: "Egy szöveg elejéről vagy végéről megadott számú karaktert ad vissza.\n\
+					=bal(szöveg; [n])\n\
+					=jobb(szöveg; [n])"
+			}
+		},
+		"sprego_length": {
+			en: {
+				name: "length",
+				help: "Counts the number of characters in a text.\n\
+					=length(text)"
+			},
+			hu: {
+				name: "hossz",
+				help: "Megszámolja, hogy egy szöveg hány karakterből áll.\n\
+					=hossz(szöveg)"
+			}
+		},
+		"sprego_search": {
+			en: {
+				name: "search",
+				help: "Finds a piece of text in another text, and returns the number of the character where it starts.\n\
+					=search(text_to_find, in_text, [n])"
+			},
+			hu: {
+				name: "szöveg.keres",
+				help: "Megkeres egy szövegdarabot egy szövegben, és visszaadja, hogy hányadik karakternél kezdődik.\n\
+					=szöveg.keres(szövegdarab; szövegben; [n])"
+			}
+		},
+		"sprego_substitute": {
+			en: {
+				name: "substitute",
+				help: "Replaces a piece of old text with a piece of new text.\n\
+					=substitute(in_text, old_text, new_text, [n])"
+				},
+			hu: {
+				name: "helyette",
+				help: "Egy szövegdarabot egy másik szövegdarabra cserél.\n\
+					=helyette(szövegben; régi_szövegdarab; új_szövegdarab; [n])"
+			}
+		},
+		/* date/time */
+		"sprego_date/time": {
+			en: {
+				name: [["date", "DATE"],
+					   ["time", "TIME"]],
+				help: "Creates a date or time from the given numbers\n\
+					=date(year_number, month_number, day_number)\n\
+					=time(hour_number, minute_number, second_number)"
+			},
+			hu: {
+				name: [["dátum", "DATE"],
+					   ["idő", "TIME"]],
+				help: "A paraméterként megadott számokból érvényes dátumot vagy időt állít össze.\n\
+					=dátum(év_szám; hónap_szám; nap_szám)\n\
+					=idő(óra_szám; perc_ szám; másodperc_szám)"
+			}
+		},
+		"sprego_year/month/day": {
+			en: {
+				name: [["year", "YEAR"],
+					   ["month", "MONTH"],
+					   ["day", "DAY"]],
+				help: "Returns the number of the year, month or day from the given date value.\n\
+					=year(date)\n\
+					=month(date)\n\
+					=day(date)"
+			},
+			hu: {
+				name: [["év", "YEAR"],
+					   ["hónap", "MONTH"],
+					   ["nap", "DAY"]],
+				help: "A paraméterként megadott dátumértékből visszaadja az év, a hónap vagy a nap sorszámát.\n\
+					=év(dátum)\n\
+					=hónap(dátum)\n\
+					=nap(dátum)"
+			}
+		},
+		"sprego_hour/minute/second": {
+			en: {
+				name: [["hour", "HOUR"],
+					   ["minute", "MINUTE"],
+					   ["second", "SECOND"]],
+				help: "Returns the number of the hour, minute or second from the given time value.\n\
+					=hour(time)\n\
+					=minute(time)\n\
+					=second(time)"
+			},
+			hu: {
+				name: [["óra", "HOUR"],
+					   ["percek", "MINUTE"],
+					   ["mperc", "SECOND"]],
+				help: "A paraméterként megadott időértékből visszaadja az óra, a perc vagy a másodperc sorszámát.\n\
+					=óra(idő)\n\
+					=percek(idő)\n\
+					=mperc(idő)"
+			}
+		},
+		"sprego_today/now": {
+			en: {
+				name: [["today", "TODAY"],
+					   ["now", "NOW"]],
+				help: "Returns the current date or time.\n\
+					=today()\n\
+					=now()"
+			},
+			hu: {
+				name: [["ma", "TODAY"],
+					   ["most", "NOW"]],
+				help: "Visszaadja a mai dátumot, vagy a pontos időt.\n\
+					=ma()\n\
+					=most()"
+			}
+		},
+		/* matrix/search */
+		"sprego_index": {
+			en: {
+				name: "index",
+				help: "Returns a value from an array given by its row or column number.\n\
+					=index(array, [row_number], [column_number])"
+			},
+			hu: {
+				name: "index",
+				help: "Visszadja egy oszlop valahanyadik sorában, vagy egy sor valahanyadik oszlopában található értéket.\n\
+					=index(tartomány; [sorszám]; [oszlopszám])"
+			}
+		},
+		"sprego_match": {
+			en: {
+				name: "match",
+				help: "Finds a value in an array, and returns its row or column number.\n\
+					=match(value_to_find, array, [match_type])"
+			},
+			hu: {
+				name: "hol.van",
+				help: "Visszaadja, hogy a keresett érték egy oszlop tartománynak hanyadik sorában, vagy egy sor tartománynak hanyadik oszlopában van.\n\
+					=hol.van(keresett_érték; tartomány; [egyezés_típusa])"
+			}
+		},
+		"sprego_row/column": {
+			en: {
+				name: [["row", "ROW"],
+					   ["column", "COLUMN"]],
+				help: "Returns the row or column number of the given cell.\n\
+					=row(cell_index)\n\
+					=column(cell_index)"
+			},
+			hu: {
+				name: [["sor", "ROW"],
+					   ["oszlop", "COLUMN"]],
+				help: "Visszaadja egy cella sorszámát vagy oszlopszámát.\n\
+					=sor(cellahivatkozás)\n\
+					=oszlop(cellahivatkozás)"
+			}
+		},
+		"sprego_offset": {
+			en: {
+				name: "offset",
+				help: "Returns the index of a cell after the given offset is applied.\n\
+					=offset(cell_index, rows, columns, [height], [width])"
+			},
+			hu: {
+				name: "eltolás",
+				help: "Egy cella helyzetéhez képest valahány sorral és oszloppal eltolt cella hivatkozását adja vissza.\n\
+					=eltolás(cellahivatkozás; sorok_száma; oszlopok_száma; [magasság]; [szélesség])"
+			}
+		},
+		"sprego_transpose": {
+			en: {
+				name: "transpose",
+				help: "Transforms the rows to columns and the columns to rows of the given array.\n\
+					=transpose(array)"
+			},
+			hu: {
+				name: "transzponálás",
+				help: "Egy tartomány sorait oszlopokká, oszlopait pedig sorokká alakítja.\n\
+					=transzponálás(tartomány)"
+			}
+		},
+		/* info */
+		"sprego_iserror/isblank": {
+			en: {
+				name: [["iserror", "ISERROR"],
+					   ["isblank", "ISBLANK"]],
+				help: "Returns TRUE if the given cell contains an error message or blank, otherwise returns FALSE.\n\
+					=iserror(cell_index)\n\
+					=isblank(cell_index)"
+			},
+			hu: {
+				name: [["hibás", "ISERROR"],
+					   ["üres", "ISBLANK"]],
+				help: "Ha a paraméterként megadott érték valamilyen hibaüzenet vagy üres cella, akkor IGAZ értéket ad, egyébként HAMIS-at.\n\
+					=hibás(cellahivatkozás)\n\
+					=üres(cellahivatkozás)"
+			}
+		},
+		"sprego_isnumber/islogical/istext": {
+			en: {
+				name: [["isnumber", "ISNUMBER"],
+					   ["islogical", "ISLOGICAL"],
+					   ["istext", "ISTEXT"]],
+				help: "Returns TRUE if the given cell contains a number, a logical value or a text, otherwise returns FALSE.\n\
+					=isnumber(cell_index)\n\
+					=islogical(cell_index)\n\
+					=istext(cell_index)"
+			},
+			hu: {
+				name: [["szám", "ISNUMBER"],
+					   ["logikai", "ISLOGICAL"],
+					   ["szöveg.e", "ISTEXT"]],
+				help: "Ha a paraméterként megadott érték szám, logikai érték vagy szöveg, akkor IGAZ értéket ad, egyébként HAMIS-at.\n\
+					=szám(cellahivatkozás)\n\
+					=logikai(cellahivatkozás)\n\
+					=szöveg.e(cellahivatkozás)"
+			}
+		}
+	}
+};

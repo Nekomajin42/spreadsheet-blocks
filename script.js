@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener("DOMContentLoaded", function()
 {
 	// config the workspace
@@ -18,12 +20,16 @@ window.addEventListener("DOMContentLoaded", function()
 		}
 	});
 	Blockly.BlockSvg.START_HAT = true;
+	Blockly.Flyout.prototype.autoClose = false;
+	Blockly.Tooltip.LIMIT = 500;
 	
-	// auto backup/restore
+	// auto backup
 	var save = window.setInterval(function()
 	{
 		window.localStorage.autoSave = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
 	}, 10000);
+	
+	// restore
 	if (window.localStorage.autoSave == null) // no session found, create START block
 	{
 		var xml_text = "<xml><block type='sprego_start' id='sprego_start' x='0' y='100'></block></xml>";
@@ -104,4 +110,57 @@ window.addEventListener("DOMContentLoaded", function()
 			reader.readAsText(input.files[0], "utf-8");
 		});
 	});
+	
+	// create data URL
+	/*document.getElementById("url").addEventListener("click", function()
+	{
+		var xml = Blockly.Xml.workspaceToDom(workspace);
+		var xml_text = Blockly.Xml.domToPrettyText(xml);
+		console.log(xml_text.length, xml_text);
+	});*/
+	
+	// open Help
+	document.getElementById("help").addEventListener("click", function()
+	{
+		window.open("https://github.com/Nekomajin42/sprego-blocks/tree/master/help");
+	});
 });
+
+var browser_locale = navigator.language;
+function getBlockLocale(block)
+{
+	if (browser_locale in lang_data.blocks[block])
+	{
+		return lang_data.blocks[block][browser_locale];
+	}
+	return lang_data.blocks[block]["en"];
+}
+
+function getFunctionName(block, name)
+{
+	var locale = (browser_locale in lang_data.blocks[block]) ? browser_locale : "en";
+	
+	if (name === undefined)
+	{
+		return lang_data.blocks[block][locale].name;
+	}
+	else
+	{
+		for (var i=0; i<lang_data.blocks[block][locale].name.length; i++)
+		{
+			if (lang_data.blocks[block][locale].name[i][1] === name)
+			{
+				return lang_data.blocks[block][locale].name[i][0];
+			}
+		}
+	}
+}
+
+function getSeparatorLocale()
+{
+	if (browser_locale in lang_data.meta.separator)
+	{
+		return lang_data.meta.separator[browser_locale];
+	}
+	return ",";
+}

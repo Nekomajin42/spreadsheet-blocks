@@ -4,20 +4,21 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_logical = 210;
+var color_logical = "#800000";
 
 Blockly.Blocks["sprego_if"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_if");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("ha");
-		this.appendValueInput("LOGICAL_STATEMENT");
+			.appendField(locale.name);
+		this.appendValueInput("EXPRESSION");
 		this.appendValueInput("VALUE_IF_TRUE");
 		this.appendValueInput("VALUE_IF_FALSE");
-		this.setTooltip("Ha az első paraméterként megadott logikai kifejezés igaz, akkor a második, ha hamis, akkor a harmadik paramétert írja a cellába.\n\n=ha(logikai_kifejezés; [érték_ha_igaz]; [érték_ha_hamis])");
+		this.setTooltip(locale.help);
 		this.setColour(color_logical);
 	}
 };
@@ -26,15 +27,14 @@ Blockly.Blocks["sprego_and/or"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_and/or");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField(new Blockly.FieldDropdown([
-						   ["és", "AND"],
-						   ["vagy", "OR"]
-						]), "NAME");
-		this.appendValueInput("STATEMENT");
-		this.setTooltip("Elvégzi a logikai ÉS illetve VAGY műveletet.\n\n=és(kifejezés1; [kifejezés2]; ...)\n=vagy(kifejezés1; [kifejezés2]; ...)");
+			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
+		this.appendValueInput("EXPRESSION1");
+		this.appendValueInput("EXPRESSION2");
+		this.setTooltip(locale.help);
 		this.setColour(color_logical);
 	}
 };
@@ -43,12 +43,13 @@ Blockly.Blocks["sprego_not"] =
 {
 	init: function()
 	{
+		var locale = getBlockLocale("sprego_not");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
-			.appendField("nem");
-		this.appendValueInput("STATEMENT");
-		this.setTooltip("A paraméterként kapott logikai kifejezés eredményét IGAZ-ról HAMIS-ra, HAMIS-ról IGAZ-ra változtatja.\n\n=nem(kifejezés)");
+			.appendField(locale.name);
+		this.appendValueInput("EXPRESSION");
+		this.setTooltip(locale.help);
 		this.setColour(color_logical);
 	}
 };
