@@ -15,7 +15,7 @@ form {
 box-sizing: border-box;
 width: 100%;
 overflow: auto;
-border-bottom: 5px solid Green;
+border-bottom: 5px solid #263238;
 background-color: WhiteSmoke;}
 
 #generate {
@@ -28,7 +28,7 @@ color: White;
 font-size: 1rem;
 border: none;
 border-radius: 5px;
-background-color: Green;}
+background-color: #263238;}
 
 #menu-button {
 box-sizing: border-box;
@@ -41,11 +41,11 @@ font-size: 1.2rem;
 font-weight: bold;
 border: none;
 border-radius: 50%;
-background-color: Green;}
+background-color: #263238;}
 
 #generate:hover, #menu-button:hover {
 color: Black;
-background-color: LightGreen;}
+background-color: #CFD8DC;}
 
 #generate:focus, #menu-button:focus {
 outline: none;}
@@ -65,7 +65,7 @@ transition: border-color 1s;
 cursor: text;}
 
 #output.copy {
-border: 2px solid LightGreen;}
+border: 2px solid #CFD8DC;}
 
 #menu {
 box-sizing: border-box;
@@ -78,7 +78,7 @@ width: auto;
 height: auto;
 margin: 0;
 padding: 0;
-border: 2px solid Green;
+border: 2px solid #263238;
 border-radius: 5px;
 background-color: WhiteSmoke;}
 
@@ -99,7 +99,7 @@ border-radius: 2px;
 background-color: WhiteSmoke;}
 
 .menu-item:hover {
-background-color: LightGreen;}
+background-color: #CFD8DC;}
 
 .menu-item:focus {
 outline: none;}
@@ -110,7 +110,7 @@ width: 100px;
 height: 2px;
 border: none;
 border-radius: 1px;
-background-color: Green;}
+background-color: #263238;}
 
 section {
 box-sizing: border-box;
@@ -127,13 +127,23 @@ border: none !important;
 border-radius: 5px;}
 
 .blocklyTreeRow:not(.blocklyTreeSelected):hover {
-background-color: LightGreen !important;}
+background-color: WhiteSmoke !important;}
 
 .blocklyMainBackground {
 cursor: move;}
 
 .blocklyWidgetDiv {
-max-height: 120px;}
+max-height: 140px;}
+
+.goog-menu {
+padding: 5px;
+font-size: 0.8rem !important;
+line-height: 150% !important;
+opacity: 1;
+border: 2px solid Grey !important;
+border-radius: 3px;
+background-color: White;
+box-shadow: none;}
 
 .blocklyTooltipDiv {
 padding: 5px;
@@ -141,5 +151,6 @@ font-size: 0.8rem;
 line-height: 150%;
 opacity: 1;
 border: 2px solid Grey;
-border-radius: 2px;
-background-color: White;}
+border-radius: 3px;
+background-color: White;
+box-shadow: none;}

@@ -4,8 +4,6 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_logical = "#800000";
-
 Blockly.Blocks["sprego_if"] =
 {
 	init: function()
@@ -19,7 +17,7 @@ Blockly.Blocks["sprego_if"] =
 		this.appendValueInput("VALUE_IF_TRUE");
 		this.appendValueInput("VALUE_IF_FALSE");
 		this.setTooltip(locale.help);
-		this.setColour(color_logical);
+		this.setColour(sprego_color.bluegrey.c1);
 	}
 };
 
@@ -35,7 +33,7 @@ Blockly.Blocks["sprego_and/or"] =
 		this.appendValueInput("EXPRESSION1");
 		this.appendValueInput("EXPRESSION2");
 		this.setTooltip(locale.help);
-		this.setColour(color_logical);
+		this.setColour(sprego_color.bluegrey.c2);
 	}
 };
 
@@ -50,6 +48,6 @@ Blockly.Blocks["sprego_not"] =
 			.appendField(locale.name);
 		this.appendValueInput("EXPRESSION");
 		this.setTooltip(locale.help);
-		this.setColour(color_logical);
+		this.setColour(sprego_color.bluegrey.c3);
 	}
 };

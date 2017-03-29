@@ -4,8 +4,6 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_search = "#0000FF";
-
 Blockly.Blocks["sprego_index"] =
 {
 	init: function()
@@ -19,7 +17,7 @@ Blockly.Blocks["sprego_index"] =
 		this.appendValueInput("ROW");
 		this.appendValueInput("COLUMN");
 		this.setTooltip(locale.help);
-		this.setColour(color_search);
+		this.setColour(sprego_color.teal.c1);
 	}
 };
 
@@ -36,7 +34,7 @@ Blockly.Blocks["sprego_match"] =
 		this.appendValueInput("ARRAY");
 		this.appendValueInput("TYPE");
 		this.setTooltip(locale.help);
-		this.setColour(color_search);
+		this.setColour(sprego_color.teal.c2);
 	}
 };
 
@@ -51,7 +49,7 @@ Blockly.Blocks["sprego_row/column"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(color_search);
+		this.setColour(sprego_color.teal.c3);
 	}
 };
 
@@ -70,7 +68,7 @@ Blockly.Blocks["sprego_offset"] =
 		this.appendValueInput("HEIGHT");
 		this.appendValueInput("WIDTH");
 		this.setTooltip(locale.help);
-		this.setColour(color_search);
+		this.setColour(sprego_color.teal.c4);
 	}
 };
 
@@ -85,6 +83,6 @@ Blockly.Blocks["sprego_transpose"] =
 			.appendField(locale.name);
 		this.appendValueInput("ARRAY");
 		this.setTooltip(locale.help);
-		this.setColour(color_search);
+		this.setColour(sprego_color.teal.c4);
 	}
 };

@@ -4,8 +4,6 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_misc = "#008000";
-
 Blockly.Blocks["sprego_start"] =
 {
 	init: function()
@@ -16,7 +14,7 @@ Blockly.Blocks["sprego_start"] =
 		this.appendValueInput("FORMULA")
 			.appendField("=");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.grey.c1);
 	}
 };
 
@@ -29,7 +27,7 @@ Blockly.Blocks["sprego_expression"] =
 		this.appendValueInput("NEXT")
 			.appendField(new Blockly.FieldTextInput(locale.name), "STATEMENT");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c1);
 	}
 };
 
@@ -51,7 +49,7 @@ Blockly.Blocks["sprego_mathops"] =
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c2);
 	}
 };
 
@@ -74,7 +72,7 @@ Blockly.Blocks["sprego_relops"] =
 						]), "OPERATOR");
 		this.appendValueInput("RIGHT");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c2);
 	}
 };
 
@@ -90,7 +88,7 @@ Blockly.Blocks["sprego_concat"] =
 			.appendField("&");
 		this.appendValueInput("SECOND");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c2);
 	}
 };
 
@@ -106,7 +104,7 @@ Blockly.Blocks["sprego_array"] =
 			.appendField(":");
 		this.appendValueInput("END");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c3);
 	}
 };
 
@@ -121,7 +119,7 @@ Blockly.Blocks["sprego_absoluteref"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "WHICH");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c4);
 	}
 };
 
@@ -137,6 +135,6 @@ Blockly.Blocks["sprego_externalref"] =
 			.appendField("!");
 		this.appendValueInput("ARRAY");
 		this.setTooltip(locale.help);
-		this.setColour(color_misc);
+		this.setColour(sprego_color.green.c5);
 	}
 };

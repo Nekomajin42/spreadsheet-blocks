@@ -4,8 +4,6 @@ goog.provide("Blockly.Blocks.sprego");
 
 goog.require("Blockly.Blocks");
 
-var color_text = "#FF0000";
-
 Blockly.Blocks["sprego_left/right"] =
 {
 	init: function()
@@ -18,7 +16,7 @@ Blockly.Blocks["sprego_left/right"] =
 		this.appendValueInput("TEXT");
 		this.appendValueInput("N");
 		this.setTooltip(locale.help);
-		this.setColour(color_text);
+		this.setColour(sprego_color.orange.c1);
 	}
 };
 
@@ -33,7 +31,7 @@ Blockly.Blocks["sprego_length"] =
 			.appendField(locale.name);
 		this.appendValueInput("TEXT");
 		this.setTooltip(locale.help);
-		this.setColour(color_text);
+		this.setColour(sprego_color.orange.c2);
 	}
 };
 
@@ -50,7 +48,7 @@ Blockly.Blocks["sprego_search"] =
 		this.appendValueInput("TEXT");
 		this.appendValueInput("START");
 		this.setTooltip(locale.help);
-		this.setColour(color_text);
+		this.setColour(sprego_color.orange.c3);
 	}
 };
 
@@ -68,6 +66,6 @@ Blockly.Blocks["sprego_substitute"] =
 		this.appendValueInput("NEW_TEXT");
 		this.appendValueInput("N");
 		this.setTooltip(locale.help);
-		this.setColour(color_text);
+		this.setColour(sprego_color.orange.c3);
 	}
 };

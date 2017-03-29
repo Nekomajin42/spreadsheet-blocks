@@ -4,12 +4,124 @@ var lang_data = {
 			en: "Tóth Róbert",
 			hu: "Tóth Róbert"
 		},
+		supported: {
+			en: ["en", "en-US", "en-GB", "en-AU"],
+			hu: ["hu", "hu-HU"]
+		},
 		separator: {
 			en: ",",
 			hu: ";"
 		}
 	},
 	gui: {
+		/* menu */
+		"button-create": {
+			en: {
+				value: "Create",
+				title: "Create and copy the Excel formula to the clipboard from the blocks inside the = block"
+			},
+			hu: {
+				value: "Létrehozás",
+				title: "Excel képlet létrehozása és vágólapra másolása az = blokkban található blokkokból"
+			}
+		},
+		"button-menu": {
+			en: {
+				value: "\u22ee", /* do NOT change (unicode vertical ellipsis) */
+				title: "Menu"
+			},
+			hu: {
+				value: "\u22ee",
+				title: "Menü"
+			}
+		},
+		"button-save": {
+			en: {
+				value: "Save",
+				title: "Save the entire workspace as XML (.sb)"
+			},
+			hu: {
+				value: "Mentés",
+				title: "A teljes munkaterület mentése XML-be (.sb)"
+			}
+		},
+		"button-open": {
+			en: {
+				value: "Open",
+				title: "Open a workspace from XMl (.sb)"
+			},
+			hu: {
+				value: "Megnyitás",
+				title: "Munkaterület megnyitása XML-ből (.sb)"
+			}
+		},
+		"button-help": {
+			en: {
+				value: "Help",
+				title: "Open Help"
+			},
+			hu: {
+				value: "Súgó",
+				title: "Súgó megnyitása"
+			}
+		},
+		/* toolbox */
+		"category-expressions": {
+			en: {
+				name: "Expressions"
+			},
+			hu: {
+				name: "Kifejezések"
+			}
+		},
+		"category-math": {
+			en: {
+				name: "Math functions"
+			},
+			hu: {
+				name: "Matematikai függvények"
+			}
+		},
+		"category-logical": {
+			en: {
+				name: "Logical functions"
+			},
+			hu: {
+				name: "Logikai függvények"
+			}
+		},
+		"category-text": {
+			en: {
+				name: "Text functions"
+			},
+			hu: {
+				name: "Szöveg függvények"
+			}
+		},
+		"category-date": {
+			en: {
+				name: "Date functions"
+			},
+			hu: {
+				name: "Dátum függvények"
+			}
+		},
+		"category-matrix": {
+			en: {
+				name: "Search functions"
+			},
+			hu: {
+				name: "Kereső függvények"
+			}
+		},
+		"category-info": {
+			en: {
+				name: "Information functions"
+			},
+			hu: {
+				name: "Információs függvények"
+			}
+		}
 	},
 	blocks: {
 		/* expressions */
