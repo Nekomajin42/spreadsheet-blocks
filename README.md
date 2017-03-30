@@ -3,24 +3,23 @@ Sprego Blocks is a visual editor to build Excel formulas.
 
 Sprego comes from *spreadsheet lego*.
 Its goal is to help solving real life data processing problems with spreadsheet programs.
-The restriction of the available set of functions helps people to develop their functional programming skills.
+Also, with the restriction of the available set of functions, it helps people to develop their functional programming skills.
 
-Using Blockly as a visual representation helps end-user programmers to learn how to embed formulas into each other.
+However, Sprego Blocks contains more functions to aid those, who only want to learn the syntax of spreadsheet formulas.
+The appearance of Blockly elements makes it easier learn how to build references or embed formulas into each other.
 Each block represents a function, an expression or a mathematical/logical operation.
-The application generates syntactically correct Excel code, but does not evaluate it.
 
-Sprego Blocks is still an experimental application.
-It is only available in hungarian language for now, but localization is planned in the future.
+The application generates syntactically correct Excel code, but does not evaluate it.
 
 # Magyarul
 A Sprego Blocks egy vizuális szerkesztőfelület Excel képletek létrehozásához.
 
 A Sprego szó az angol *spreadsheet lego* kifejezés rövidítése.
 A célja, hogy segítse a valós adatfeldolgozási problémák táblázatkezelő programok segítségével történő megoldását.
-A használható függvények számának korlátozása segíti a funkcionális programozási képesség fejlesztését.
+Továbbá a használható függvények számának korlátozásával elősegíti a funkcionális programozási képesség fejlesztését.
 
-A Blockly, mint vizuális megjelenítési forma segít a végfelhasználó programozóknak, hogy megtanulják a képletek egymásba ágyazásának lépéseit.
+A Sprego Blocks azonban több függvényt tartalmaz, így azoknak is bátran használhatják, akik csak a képletek szintaktikai szabályait akarják elsejátítani.
+A Blockly elemek kinézete megkönnyíti a hivatkozások létrehozásának és a képletek egymásba ágyazásának megtanulását.
 Minden blokk egy-egy függvényt, kifejezést vagy matematikai/logikai műveletet jelképez.
-Az alkalmazás szinktaktikailag helyes Excel képletet generál, de nem hajtja azt végre.
 
-A Sprego Blocks egy kísérleti fázisban lévő alkalmazás.
+Az alkalmazás szinktaktikailag helyes Excel képletet generál, de nem hajtja azt végre.
