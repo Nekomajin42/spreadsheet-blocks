@@ -18,17 +18,18 @@ overflow: auto;
 border-bottom: 5px solid #263238;
 background-color: WhiteSmoke;}
 
-#generate {
+#create-button {
 box-sizing: border-box;
 height: 30px;
 width: 100px;
 float: left;
-margin: 10px;
+margin: 10px 5px 10px 10px;
 color: White;
 font-size: 1rem;
 border: none;
 border-radius: 5px;
-background-color: #263238;}
+background-color: #263238;
+transition: all 0.5s;}
 
 #menu-button {
 box-sizing: border-box;
@@ -41,31 +42,48 @@ font-size: 1.2rem;
 font-weight: bold;
 border: none;
 border-radius: 50%;
-background-color: #263238;}
+background-color: #263238;
+transition: all 0.5s;}
 
-#generate:hover, #menu-button:hover {
+#create-button:hover, #menu-button:hover {
 color: Black;
-background-color: #CFD8DC;}
+background-color: #B0BEC5;}
 
-#generate:focus, #menu-button:focus {
+#create-button:focus, #menu-button:focus {
 outline: none;}
+
+label[for="output"] {
+box-sizing: border-box;
+height: 20px;
+width: 20px;
+float: left;
+margin: 15px 5px 15px 0;
+padding: 1px;
+color: White;
+font-size: 0.8rem;
+font-weight: bold;
+text-align: center;
+border: none;
+border-radius: 50%;
+background-color: #1B5E20;
+opacity: 0;
+transition: opacity 1s;}
+
+label[for="output"].copy {
+opacity: 1;}
 
 #output {
 box-sizing: border-box;
 height: 30px;
-width: calc(100% - 170px);
+width: calc(100% - 190px);
 float: left;
 margin: 10px 0 10px 0;
-padding: 1px 5px 1px 5px;
+padding: 1px 5px 1px 0;
 font-size: 1rem;
-border: 2px solid Transparent;
+border: none;
 border-radius: 5px;
 background-color: WhiteSmoke;
-transition: border-color 1s;
 cursor: text;}
-
-#output.copy {
-border: 2px solid #CFD8DC;}
 
 #menu {
 box-sizing: border-box;

@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function()
 	}
 	
 	// make the Create button work
-	document.getElementById("generate").addEventListener("click", function()
+	document.getElementById("create-button").addEventListener("click", function()
 	{
 		// get the code (only inside the start block)
 		var code = Blockly.JavaScript.blockToCode(workspace.getBlockById("sprego_start"));
@@ -63,18 +63,19 @@ window.addEventListener("DOMContentLoaded", function()
 		// fill the output field
 		var output = document.getElementById("output");
 		output.value = code;
+		output.select();
 		
-		if (code !== "") // no need to copy an empty string
+		if (code !== "" && document.execCommand("copy")) // the start block is not empty AND clipboard write is supported
 		{
-			// copy to clipboard
-			output.select();
-			document.execCommand("copy");
+			//document.execCommand("copy");
+			window.getSelection().removeAllRanges();
+			output.blur();
 			
 			// animate output
-			output.classList.add("copy");
+			document.querySelector("label[for='output']").classList.add("copy");
 			window.setTimeout(function(output)
 			{
-				document.getElementById("output").classList.remove("copy");
+				document.querySelector("label[for='output']").classList.remove("copy");
 			}, 1000);
 		}
 	});
@@ -124,6 +125,15 @@ window.addEventListener("DOMContentLoaded", function()
 		});
 	});
 	
+	// clear the workspace
+	document.getElementById("clear").addEventListener("click", function()
+	{
+		Blockly.mainWorkspace.clear(); // clear the workspace
+		var xml_text = "<xml><block type='sprego_start' id='sprego_start' x='0' y='100'></block></xml>";
+		var xml = Blockly.Xml.textToDom(xml_text);
+		Blockly.Xml.domToWorkspace(xml, workspace);
+	});
+	
 	// create data URL
 	/*document.getElementById("url").addEventListener("click", function()
 	{
@@ -154,6 +164,12 @@ function getBrowserLocale()
 			sprego_locale = key;
 		}
 	}
+	
+	// append Blockly locale file to HEAD
+	var script = document.createElement("script");
+	script.src = "blockly/msg/js/" + sprego_locale + ".js";
+	script.type = "text/javascript";
+	document.head.appendChild(script);
 }
  
 function getUILocale()

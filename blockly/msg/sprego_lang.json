@@ -38,7 +38,7 @@ var lang_data = {
 		"button-save": {
 			en: {
 				value: "Save",
-				title: "Save the entire workspace as XML (.sb)"
+				title: "Save the entire workspace to XML (.sb)"
 			},
 			hu: {
 				value: "Mentés",
@@ -53,6 +53,16 @@ var lang_data = {
 			hu: {
 				value: "Megnyitás",
 				title: "Munkaterület megnyitása XML-ből (.sb)"
+			}
+		},
+		"button-clear": {
+			en: {
+				value: "Clear",
+				title: "Removes all blocks from the workspace except the = block"
+			},
+			hu: {
+				value: "Törlés",
+				title: "Az összes blokk törlése a munkaterületről, az = blokk kivételével"
 			}
 		},
 		"button-help": {
