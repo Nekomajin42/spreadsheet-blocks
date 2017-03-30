@@ -5,7 +5,7 @@ Each block has its own Help with a short description and the syntax. (Parameters
 You can read them in a tooltip when hovering the blocks with the mouse.
 
 ## Copy to clipboard
-When you click on the *Create* button the formula will be created from the blocks inside the "=" block.
+When you click on the *Create* button, the formula will be created from the blocks inside the "=" block.
 If you see the green sign appear next to the button, the formula is automatically copied to the clipboard.
 No need for `Ctrl+C`, you can just paste it to Excel.
 
