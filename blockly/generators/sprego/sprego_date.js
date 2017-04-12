@@ -35,6 +35,18 @@ Blockly.JavaScript["sprego_hour/minute/second"] = function(block)
 	return [name + "(" + index + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
+Blockly.JavaScript["sprego_weekday/weeknum"] = function(block)
+{
+	var separator = getSeparatorLocale() + " ";
+	
+	var name = getFunctionName("sprego_weekday/weeknum", block.getFieldValue("NAME"));
+	
+	var date = Blockly.JavaScript.valueToCode(block, "DATE", Blockly.JavaScript.ORDER_NONE || "");
+	var type = Blockly.JavaScript.valueToCode(block, "TYPE", Blockly.JavaScript.ORDER_NONE || "");
+	
+	return [name + "(" + date + separator + type + ")", Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.JavaScript["sprego_today/now"] = function(block)
 {
 	var name = getFunctionName("sprego_today/now", block.getFieldValue("NAME"));

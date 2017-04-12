@@ -8,6 +8,7 @@
 		<link rel="icon" href="icon.png" type="image/png" />
 		<script src="script.js" type="text/javascript"></script>
 		<script src="external/FileSaver.min.js" type="text/javascript"></script>
+		<script src="external/saveSvgAsPng.js" type="text/javascript"></script>
 		
 		<!-- engine -->
 		<script src="blockly/blockly_compressed.js" type="text/javascript"></script>
@@ -39,14 +40,14 @@
 		<main>
 			<form>
 				<input type="button" id="create-button" data-locale="button-create" />
-				<label for="output">✓</label>
+				<label for="output">&#x2713;</label><!-- unicode check mark -->
 				<input type="text" id="output" readonly />
-				<input type="button" id="menu-button" value="&#x22ee;" data-locale="button-menu" />
+				<input type="button" id="menu-button" data-locale="button-menu" />
 				<fieldset id="menu">
 					<input type="button" class="menu-item" id="save" data-locale="button-save" />
 					<input type="button" class="menu-item" id="open" data-locale="button-open" />
+					<input type="button" class="menu-item" id="screenshot" data-locale="button-screenshot" />
 					<input type="button" class="menu-item" id="clear" data-locale="button-clear" />
-					<!--<input type="button" class="menu-item" id="url" value="URL" title="Megosztható URL generálása" />-->
 					<hr />
 					<input type="button" class="menu-item" id="help" data-locale="button-help" />
 				</fieldset>
@@ -88,6 +89,7 @@
 					<block type="sprego_date/time"></block>
 					<block type="sprego_year/month/day"></block>
 					<block type="sprego_hour/minute/second"></block>
+					<block type="sprego_weekday/weeknum"></block>
 					<block type="sprego_today/now"></block>
 				</category>
 				<category colour="#004D40" locale="category-matrix">

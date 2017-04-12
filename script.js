@@ -21,6 +21,7 @@ window.addEventListener("DOMContentLoaded", function()
 		collapse: false,
 		comments: false,
 		horizontalLayout: true,
+		media: "blockly/media/",
 		scrollbars: true,
 		sounds: false,
 		trashcan: true,
@@ -36,12 +37,6 @@ window.addEventListener("DOMContentLoaded", function()
 	Blockly.Tooltip.LIMIT = 500;
 	Blockly.Tooltip.HOVER_MS = 200;
 	
-	// auto backup
-	var save = window.setInterval(function()
-	{
-		window.localStorage.autoSave = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
-	}, 10000);
-	
 	// restore
 	if (window.localStorage.autoSave == null) // no session found, create START block
 	{
@@ -54,6 +49,12 @@ window.addEventListener("DOMContentLoaded", function()
 		Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(window.localStorage.autoSave), workspace);
 	}
 	
+	// auto backup
+	var save = window.setInterval(function()
+	{
+		window.localStorage.autoSave = Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(workspace));
+	}, 10000);
+	
 	// make the Create button work
 	document.getElementById("create-button").addEventListener("click", function()
 	{
@@ -62,12 +63,11 @@ window.addEventListener("DOMContentLoaded", function()
 		
 		// fill the output field
 		var output = document.getElementById("output");
-		output.value = code;
+		output.value = (code === "=") ? "" : code; // clear the output if the start block is empty
 		output.select();
 		
-		if (code !== "" && document.execCommand("copy")) // the start block is not empty AND clipboard write is supported
+		if (code !== "=" && document.execCommand("copy")) // the start block is not empty AND clipboard write is supported
 		{
-			//document.execCommand("copy");
 			window.getSelection().removeAllRanges();
 			output.blur();
 			
@@ -98,31 +98,47 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		var xml = Blockly.Xml.workspaceToDom(workspace);
 		var xml_text = Blockly.Xml.domToPrettyText(xml);
-		var file = new File([xml_text], "code.sb", {type: "text/xml;charset=utf-8"});
-		saveAs(file, "code.sb", true);
+		try
+		{
+			var file = new Blob([xml_text], {type: "text/xml;charset=utf-8"});
+			saveAs(file, "code.sb", true);
+		}
+		catch (e)
+		{
+			console.error(e);
+			window.alert(getErrorLocale("error-feature"));
+		}
 	});
 	
 	// open the workspace from XML
 	document.getElementById("open").addEventListener("click", function()
 	{
-		// create input and load file(s)
-		var input = document.createElement("input");
-		input.type = "file";
-		input.accept = ".sb";
-		input.multiple = false;
-		input.click();
-		input.addEventListener("change", function(e)
+		try
 		{
-			var reader = new FileReader();
-			reader.onload = function(e)
+			// create input and load file(s)
+			var input = document.createElement("input");
+			input.type = "file";
+			input.accept = ".sb";
+			input.multiple = false;
+			input.click();
+			input.addEventListener("change", function(e)
 			{
-				Blockly.mainWorkspace.clear(); // clear the workspace
-				var xml_text = e.target.result; // load new code
-				var xml = Blockly.Xml.textToDom(xml_text);
-				Blockly.Xml.domToWorkspace(xml, workspace);
-			}
-			reader.readAsText(input.files[0], "utf-8");
-		});
+				var reader = new FileReader();
+				reader.onload = function(e)
+				{
+					Blockly.mainWorkspace.clear(); // clear the workspace
+					var xml_text = e.target.result; // load new code
+					var xml = Blockly.Xml.textToDom(xml_text);
+					Blockly.Xml.domToWorkspace(xml, workspace);
+				}
+				reader.readAsText(input.files[0], "utf-8");
+			});
+		}
+		catch (e)
+		{
+			console.error(e);
+			window.alert(getErrorLocale("error-feature"));
+		}
 	});
 	
 	// clear the workspace
@@ -134,13 +150,19 @@ window.addEventListener("DOMContentLoaded", function()
 		Blockly.Xml.domToWorkspace(xml, workspace);
 	});
 	
-	// create data URL
-	/*document.getElementById("url").addEventListener("click", function()
+	// create screenshot
+	document.getElementById("screenshot").addEventListener("click", function()
 	{
-		var xml = Blockly.Xml.workspaceToDom(workspace);
-		var xml_text = Blockly.Xml.domToPrettyText(xml);
-		console.log(xml_text.length, xml_text);
-	});*/
+		try
+		{
+			saveSvgAsPng(document.querySelector(".blocklySvg"), "sprego_blocks.png", {encoderOptions: 1});
+		}
+		catch (e)
+		{
+			console.error(e);
+			window.alert(getErrorLocale("error-feature"));
+		}
+	});
 	
 	// open Help
 	document.getElementById("help").addEventListener("click", function()
@@ -190,6 +212,11 @@ function getUILocale()
 		elements[i].setAttribute("name", lang_data.gui[elements[i].getAttribute("locale")][sprego_locale].name);
 	}
 	document.getElementById("toolbox").textContent = new XMLSerializer().serializeToString(toolbox);
+}
+
+function getErrorLocale(error)
+{
+	return lang_data.gui[error][sprego_locale].message;
 }
 
 function getBlockLocale(block)

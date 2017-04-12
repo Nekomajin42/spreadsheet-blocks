@@ -51,6 +51,22 @@ Blockly.Blocks["sprego_hour/minute/second"] =
 	}
 };
 
+Blockly.Blocks["sprego_weekday/weeknum"] =
+{
+	init: function()
+	{
+		var locale = getBlockLocale("sprego_weekday/weeknum");
+		this.setInputsInline(true);
+		this.setOutput(true);
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
+		this.appendValueInput("DATE");
+		this.appendValueInput("TYPE");
+		this.setTooltip(locale.help);
+		this.setColour(sprego_color.red.c3);
+	}
+};
+
 Blockly.Blocks["sprego_today/now"] =
 {
 	init: function()

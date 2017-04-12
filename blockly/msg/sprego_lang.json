@@ -14,24 +14,33 @@ var lang_data = {
 		}
 	},
 	gui: {
+		/* error messages */
+		"error-feature": {
+			en: {
+				message: "Your browser does not support this operation.\nPlease, update to the latest version!"
+			},
+			hu: {
+				message: "Az ön böngészője nem támogatja ezt a műveletet.\nKérem, frissítse a legújabb verzióra!"
+			}
+		},
 		/* menu */
 		"button-create": {
 			en: {
 				value: "Create",
-				title: "Create and copy the Excel formula to the clipboard from the blocks inside the = block"
+				title: "Create the Excel formula from the blocks inside the = block"
 			},
 			hu: {
 				value: "Létrehozás",
-				title: "Excel képlet létrehozása és vágólapra másolása az = blokkban található blokkokból"
+				title: "Excel képlet létrehozása az = blokkban található blokkokból"
 			}
 		},
 		"button-menu": {
 			en: {
-				value: "\u22ee", /* do NOT change (unicode vertical ellipsis) */
+				value: "\ufe19", /* DO NOT MODIFY unicode presentation vertical ellipsis */
 				title: "Menu"
 			},
 			hu: {
-				value: "\u22ee",
+				value: "\ufe19",
 				title: "Menü"
 			}
 		},
@@ -53,6 +62,16 @@ var lang_data = {
 			hu: {
 				value: "Megnyitás",
 				title: "Munkaterület megnyitása XML-ből (.sb)"
+			}
+		},
+		"button-screenshot": {
+			en: {
+				value: "Screenshot",
+				title: "Save the entire workspace as image (.png)"
+			},
+			hu: {
+				value: "Fénykép",
+				title: "A teljes munaterület mentése képként (.png)"
 			}
 		},
 		"button-clear": {
@@ -501,6 +520,22 @@ var lang_data = {
 				help: "Visszaadja a mai dátumot, vagy a pontos időt.\n\
 					=ma()\n\
 					=most()"
+			}
+		},
+		"sprego_weekday/weeknum": {
+			en: {
+				name: [["weekday", "WEEKDAY"],
+					   ["weeknum", "WEEKNUM"]],
+				help: "Returns the number of day in a week, or the number of week in a year.\n\
+					=weekday(date, [type])\n\
+					=weeknum(date, [type])"
+			},
+			hu: {
+				name: [["hét.napja", "WEEKDAY"],
+					   ["hét.száma", "WEEKNUM"]],
+				help: "Visszaadja a nap sorszámát egy héten belül, vagy egy hét sorszámát egy éven belül.\n\
+					=hét.napja(dátum, [típus])\n\
+					=hét.száma(dátum, [típus])"
 			}
 		},
 		/* matrix/search */
