@@ -49,6 +49,8 @@
 |hour|óra|
 |minute|percek|
 |second|mperc|
+|weekday|hét.napja|
+|weeknum|hét.száma|
 |today|ma|
 |now|most|
 
@@ -69,6 +71,7 @@
 |isblank|üres|
 |isnumber|szám|
 |islogical|logikai|
+|istext|szöveg.e|
 
 ## Operators
 All the Excel operators are supported.
