@@ -16,6 +16,10 @@ If your browser does not support clipboard access, you won't see the green sign,
 You can save the entire workspace to XML (`.sb`) and open from XML (`.sb`) via the menu in the top right corner.
 These files can be moved online or with external storage.
 
+## Screenshot
+You can create a screenshot via the menu in the top right corner.
+The application will automatically save the screenshot into an image file (`.png`).
+
 ## Reset
 You can clear every block (except the "=" block) from the workspace via the menu in the top right corner.
 This action is reversible with two *Undo* operations from the context menu.
