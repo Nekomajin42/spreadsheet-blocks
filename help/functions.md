@@ -21,7 +21,7 @@
 |fact|fakt|
 |rand|vél|
 
-## Logical
+## Logic
 |English|Magyar|
 |---|---|
 |if|ha|
@@ -63,6 +63,7 @@
 |column|oszlop|
 |offset|eltolás|
 |transpose|transzponálás|
+|indirect|indirekt|
 
 ## Information
 |English|Magyar|
