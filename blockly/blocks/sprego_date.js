@@ -17,7 +17,7 @@ Blockly.Blocks["sprego_date/time"] =
 		this.appendValueInput("INDEX2");
 		this.appendValueInput("INDEX3");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.red.c1);
+		this.setColour(spregoBlocks.colors.red.c1);
 	}
 };
 
@@ -32,7 +32,7 @@ Blockly.Blocks["sprego_year/month/day"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.red.c2);
+		this.setColour(spregoBlocks.colors.red.c2);
 	}
 };
 
@@ -47,7 +47,7 @@ Blockly.Blocks["sprego_hour/minute/second"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.red.c2);
+		this.setColour(spregoBlocks.colors.red.c2);
 	}
 };
 
@@ -63,7 +63,7 @@ Blockly.Blocks["sprego_weekday/weeknum"] =
 		this.appendValueInput("DATE");
 		this.appendValueInput("TYPE");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.red.c3);
+		this.setColour(spregoBlocks.colors.red.c3);
 	}
 };
 
@@ -77,6 +77,6 @@ Blockly.Blocks["sprego_today/now"] =
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.red.c3);
+		this.setColour(spregoBlocks.colors.red.c3);
 	}
 };

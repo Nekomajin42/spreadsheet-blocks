@@ -15,7 +15,7 @@ Blockly.Blocks["sprego_iserror/isblank"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.grey.c2);
+		this.setColour(spregoBlocks.colors.grey.c2);
 	}
 };
 
@@ -30,6 +30,6 @@ Blockly.Blocks["sprego_isnumber/islogical/istext"] =
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.grey.c2);
+		this.setColour(spregoBlocks.colors.grey.c2);
 	}
 };

@@ -66,10 +66,19 @@ Blockly.JavaScript["sprego_absoluteref"] = function(block)
 {
 	var which = block.getFieldValue("WHICH");
 	var index = Blockly.JavaScript.valueToCode(block, "INDEX", Blockly.JavaScript.ORDER_NONE || "");
-	var column = (which === "COLUMN" || which === "BOTH") ? "$" + index.match(/\D+/)[0] : index.match(/\D+/)[0];
-	var row = (which === "ROW" || which === "BOTH") ? "$" + index.match(/\d+/)[0] : index.match(/\d+/)[0];
 	
-	return [column + row, Blockly.JavaScript.ORDER_NONE];
+	var column, row;
+	var indexes = index.split(":");
+	for (var i=0; i<indexes.length; i++)
+	{
+		column = (which === "COLUMN" || which === "BOTH") ? "$" + indexes[i].match(/\D+/)[0] : indexes[i].match(/\D+/)[0];
+		row = (which === "ROW" || which === "BOTH") ? "$" + indexes[i].match(/\d+/)[0] : indexes[i].match(/\d+/)[0];
+		indexes[i] = column + row;
+	}
+	console.log(indexes);
+	index = indexes.join(":");
+	
+	return [index, Blockly.JavaScript.ORDER_NONE];
 };
 
 Blockly.JavaScript["sprego_externalref"] = function(block)

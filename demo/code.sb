@@ -1,0 +1,194 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="sprego_start" id="sprego_start" deletable="false" x="17" y="90"></block>
+  <block type="sprego_index" id="kC+j~?=Xh^/b^;0g,cpB" x="18" y="292">
+    <value name="ARRAY">
+      <block type="sprego_match" id="Y;d~M**83eVMY%n9rDns">
+        <value name="VALUE">
+          <block type="sprego_small/large" id="7Vd7HZToT?kfg-VJE@v;">
+            <field name="NAME">SMALL</field>
+            <value name="ARRAY">
+              <block type="sprego_array" id="=-X}X[T1Va(EcGIog7k#">
+                <value name="START">
+                  <block type="sprego_expression" id="fGHGLTH:A-=49s4+.nRs">
+                    <field name="STATEMENT">a1</field>
+                  </block>
+                </value>
+                <value name="END">
+                  <block type="sprego_expression" id="E?r//trR(w9j^*vu~=XQ">
+                    <field name="STATEMENT">a10</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="N">
+              <block type="sprego_expression" id="=F.]0-Nf+wIgN/*Pr_G|">
+                <field name="STATEMENT">2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARRAY">
+          <block type="sprego_array" id="hUY_gG{lBnNPZ|Im^(BE">
+            <value name="START">
+              <block type="sprego_expression" id="b[R.|xW^X7w1eo,-obKi">
+                <field name="STATEMENT">a1</field>
+              </block>
+            </value>
+            <value name="END">
+              <block type="sprego_expression" id="oZpJU[Mfq:JE(,*gXl.A">
+                <field name="STATEMENT">a10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="TYPE">
+          <block type="sprego_expression" id="J*2FyQ8O=[r8[PL.{R@G">
+            <field name="STATEMENT">0</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <value name="ROW">
+      <block type="sprego_array" id=")/V-;xV!wZguZ8I872ed">
+        <value name="START">
+          <block type="sprego_expression" id="E4f^5Ks;{/|y]_3tG?-B">
+            <field name="STATEMENT">b1</field>
+          </block>
+        </value>
+        <value name="END">
+          <block type="sprego_expression" id="%sI0Rn;Nn,J-zYyxW^8L">
+            <field name="STATEMENT">b10</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="sprego_round/rounddown/roundup" id="^)@jNhs`E~=X76y;F/@F" x="15" y="383">
+    <field name="NAME">ROUND</field>
+    <value name="VALUE">
+      <block type="sprego_sum/avg/count/product" id="$B;.-`PlyI5+4*on-2W6">
+        <field name="NAME">SUM</field>
+        <value name="ARRAY">
+          <block type="sprego_array" id="NQ%MPz[Wwsx=KY$OgN0l">
+            <value name="START">
+              <block type="sprego_expression" id="$qJRLyfH1P(1?jVCoEZl">
+                <field name="STATEMENT">a1</field>
+              </block>
+            </value>
+            <value name="END">
+              <block type="sprego_expression" id="WMKW9HjP/-$+Uq|ec5pm">
+                <field name="STATEMENT">a10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+    <value name="N">
+      <block type="sprego_expression" id=".7;`7QPX,6igo9u!kp5{">
+        <field name="STATEMENT">2</field>
+      </block>
+    </value>
+  </block>
+  <block type="sprego_sum/avg/count/product" id="@S4BFX%cE~y.ZWnd6i|;" x="454" y="384">
+    <field name="NAME">SUM</field>
+    <value name="ARRAY">
+      <block type="sprego_if" id="1bbj);G06c@qR~%E_%.W">
+        <value name="EXPRESSION">
+          <block type="sprego_and/or" id="j1|ErPYbO?l}+r2@~HS-">
+            <field name="NAME">AND</field>
+            <value name="EXPRESSION1">
+              <block type="sprego_expression" id="bI;1Xk^x(;M)10p|2Y+U">
+                <field name="STATEMENT">a1&lt;0</field>
+              </block>
+            </value>
+            <value name="EXPRESSION2">
+              <block type="sprego_expression" id="B+nZ*r;nd[+BxNHxZWI3">
+                <field name="STATEMENT">b1&lt;0</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="VALUE_IF_TRUE">
+          <block type="sprego_expression" id="0p2mpN*N_M2q}]Ds3G7}">
+            <field name="STATEMENT">1</field>
+          </block>
+        </value>
+        <value name="VALUE_IF_FALSE">
+          <block type="sprego_expression" id="7=|jZ-wfoOoj7Dq@tP0K">
+            <field name="STATEMENT">0</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="sprego_mathops" id="!mcacu+1~_jkQn+TdeAX" x="13" y="466">
+    <field name="OPERATOR">+</field>
+    <value name="LEFT">
+      <block type="sprego_externalref" id="#[U.=[/vglwwx3{;:`Od">
+        <value name="WORKSHEET">
+          <block type="sprego_expression" id="MFWL},tha9;aOGCD^53t">
+            <field name="STATEMENT">Munka1</field>
+          </block>
+        </value>
+        <value name="ARRAY">
+          <block type="sprego_array" id="cH{6)hke}8i?}6WX+o@Z">
+            <value name="START">
+              <block type="sprego_absoluteref" id="n%6;M-:][_U3@l_.;SSX">
+                <field name="WHICH">NONE</field>
+                <value name="INDEX">
+                  <block type="sprego_expression" id="$YESGrt.C`P(~)JCCv@:">
+                    <field name="STATEMENT">a1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="END">
+              <block type="sprego_absoluteref" id="G{*04+0~Aa3)d~(SU}Z|">
+                <field name="WHICH">NONE</field>
+                <value name="INDEX">
+                  <block type="sprego_expression" id="Kwq04(iu.nfH]-Dz]_HD">
+                    <field name="STATEMENT">a10</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="sprego_date/time" id="6+_$BlbxdHMv0O*9[2Nm" x="706" y="463">
+    <field name="NAME">DATE</field>
+    <value name="INDEX1">
+      <block type="sprego_year/month/day" id="I22q$3ACSiv$WCOKM$=y">
+        <field name="NAME">YEAR</field>
+        <value name="INDEX">
+          <block type="sprego_today/now" id="pp@c^Cn@`41NG5WRm!l*">
+            <field name="NAME">TODAY</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <value name="INDEX2">
+      <block type="sprego_year/month/day" id="R!O3rONcyeWBT.u*dX^3">
+        <field name="NAME">MONTH</field>
+        <value name="INDEX">
+          <block type="sprego_today/now" id="QiBItE_A)@`wAvj;rD)a">
+            <field name="NAME">TODAY</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <value name="INDEX3">
+      <block type="sprego_year/month/day" id="h[h9+~o26:~L#m@K4B@5">
+        <field name="NAME">DAY</field>
+        <value name="INDEX">
+          <block type="sprego_today/now" id="bJb*.Z18{e:t*xOJCc_n">
+            <field name="NAME">TODAY</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>

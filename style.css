@@ -11,7 +11,7 @@ main {
 box-sizing: border-box;
 height: 100%;}
 
-form {
+#controls {
 box-sizing: border-box;
 width: 100%;
 overflow: auto;
@@ -29,7 +29,7 @@ font-size: 1rem;
 border: none;
 border-radius: 5px;
 background-color: #263238;
-transition: all 0.5s;}
+transition: all 0.2s;}
 
 #menu-button {
 box-sizing: border-box;
@@ -43,16 +43,13 @@ font-weight: bold;
 border: none;
 border-radius: 50%;
 background-color: #263238;
-transition: all 0.5s;}
+transition: all 0.2s;}
 
 #create-button:hover, #menu-button:hover {
 color: Black;
 background-color: #B0BEC5;}
 
-#create-button:focus, #menu-button:focus {
-outline: none;}
-
-label[for="output"] {
+#controls label[for="output"] {
 box-sizing: border-box;
 height: 20px;
 width: 20px;
@@ -69,7 +66,7 @@ background-color: #1B5E20;
 opacity: 0;
 transition: opacity 1s;}
 
-label[for="output"].copy {
+#controls label[for="output"].copy {
 opacity: 1;}
 
 #output {
@@ -100,7 +97,7 @@ border: 2px solid #263238;
 border-radius: 5px;
 background-color: WhiteSmoke;}
 
-#menu.open {
+#menu.open, #settings-window.open {
 display: block;}
 
 .menu-item {
@@ -119,9 +116,6 @@ background-color: WhiteSmoke;}
 .menu-item:hover {
 background-color: #CFD8DC;}
 
-.menu-item:focus {
-outline: none;}
-
 #menu hr {
 margin: 0 3px 0 3px;
 width: 100px;
@@ -130,11 +124,86 @@ border: none;
 border-radius: 1px;
 background-color: #263238;}
 
-section {
+#blockly {
 box-sizing: border-box;
 height: calc(100% - 55px);
 width: 100%;
 overflow: auto;}
+
+#settings-window {
+display: none;
+position: fixed;
+top: 30px;
+right: 150px;
+z-index: 100;
+width: auto;
+height: auto;
+border: 5px solid #263238;
+border-radius: 5px;
+background-color: WhiteSmoke;}
+
+#settings-window h1 {
+margin: 0;
+padding: 0 0 5px 0;
+text-align: center;
+font-size: 0.8rem;
+font-weight: normal;
+color: White;
+background-color: #263238;}
+
+#settings-window fieldset {
+margin: 0;
+padding: 5px 5px 0 5px;
+text-align: right;
+border: none;}
+
+#settings-window label {
+font-size: 0.8rem;}
+
+#settings-window select {
+padding: 2px 3px 2px 3px;
+font-size: 0.8rem;
+border: 2px solid #263238;
+border-radius: 5px;
+Background-color: Transparent;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+transition: all 0.2s;}
+
+#settings-window select:hover {
+border: 2px solid #B0BEC5;}
+
+#settings-cancel {
+float: left;
+margin: 0 0 5px 0;
+padding: 2px 3px 2px 3px;
+color: Black;
+font-size: 0.8rem;
+border: 2px solid #263238;
+border-radius: 5px;
+background-color: Transparent;
+transition: all 0.2s;}
+
+#settings-cancel:hover {
+border: 2px solid #B0BEC5;}
+
+#settings-ok {
+margin: 0 0 5px 0;
+padding: 4px 5px 4px 5px;
+color: White;
+font-size: 0.8rem;
+border: none;
+border-radius: 5px;
+background-color: #263238;
+transition: all 0.2s;}
+
+#settings-ok:hover {
+color: Black;
+background-color: #B0BEC5;}
+
+input:focus, select:focus {
+outline: none;}
 
 /* === Blockly CSS hacks === */
 

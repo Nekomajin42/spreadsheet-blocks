@@ -23,8 +23,8 @@ var lang_data = {
 				message: "Az ön böngészője nem támogatja ezt a műveletet.\nKérem, frissítse a legújabb verzióra!"
 			}
 		},
-		/* menu */
-		"button-create": {
+		/* controls */
+		"controls-create": {
 			en: {
 				value: "Create",
 				title: "Create the Excel formula from the blocks inside the = block"
@@ -34,7 +34,7 @@ var lang_data = {
 				title: "Excel képlet létrehozása az = blokkban található blokkokból"
 			}
 		},
-		"button-menu": {
+		"controls-menu": {
 			en: {
 				value: "\ufe19", /* DO NOT MODIFY unicode presentation vertical ellipsis */
 				title: "Menu"
@@ -44,7 +44,7 @@ var lang_data = {
 				title: "Menü"
 			}
 		},
-		"button-save": {
+		"menu-save": {
 			en: {
 				value: "Save",
 				title: "Save the entire workspace to XML (.sb)"
@@ -54,7 +54,7 @@ var lang_data = {
 				title: "A teljes munkaterület mentése XML-be (.sb)"
 			}
 		},
-		"button-open": {
+		"menu-open": {
 			en: {
 				value: "Open",
 				title: "Open a workspace from XMl (.sb)"
@@ -64,7 +64,7 @@ var lang_data = {
 				title: "Munkaterület megnyitása XML-ből (.sb)"
 			}
 		},
-		"button-screenshot": {
+		"menu-screenshot": {
 			en: {
 				value: "Screenshot",
 				title: "Save the entire workspace as image (.png)"
@@ -74,7 +74,7 @@ var lang_data = {
 				title: "A teljes munaterület mentése képként (.png)"
 			}
 		},
-		"button-clear": {
+		"menu-clear": {
 			en: {
 				value: "Clear",
 				title: "Removes all blocks from the workspace except the = block"
@@ -84,7 +84,17 @@ var lang_data = {
 				title: "Az összes blokk törlése a munkaterületről, az = blokk kivételével"
 			}
 		},
-		"button-help": {
+		"menu-settings": {
+			en: {
+				value: "Settings",
+				title: "Open Settings"
+			},
+			hu: {
+				value: "Beállítások",
+				title: "Beállítások megnyitása"
+			}
+		},
+		"menu-help": {
 			en: {
 				value: "Help",
 				title: "Open Help"
@@ -92,6 +102,89 @@ var lang_data = {
 			hu: {
 				value: "Súgó",
 				title: "Súgó megnyitása"
+			}
+		},
+		/* settings */
+		"settings-header": {
+			en: {
+				label: "Settings",
+			},
+			hu: {
+				label: "Beállítások",
+			}
+		},
+		"settings-lang": {
+			en: {
+				label: "Language:",
+			},
+			hu: {
+				label: "Nyelv:",
+			}
+		},
+		"settings-lang-list": {
+			en: {
+				en: "English",
+				hu: "Hungarian"
+			},
+			hu: {
+				en: "Angol",
+				hu: "Magyar"
+			}
+		},
+		"settings-refstyle": {
+			en: {
+				label: "Reference style:",
+			},
+			hu: {
+				label: "Hivatkozás stílus:",
+			}
+		},
+		"settings-refstyle-list": {
+			en: {
+				a1: "A1",
+				r1c1: "R1C1"
+			},
+			hu: {
+				a1: "A1",
+				r1c1: "S1O1"
+			}
+		},
+		"settings-software": {
+			en: {
+				label: "Software:",
+			},
+			hu: {
+				label: "Program:",
+			}
+		},
+		"settings-software-list": {
+			en: {
+				mse: "Microsoft Excel",
+				loc: "LibreOffice Calc"
+			},
+			hu: {
+				mse: "Microsoft Excel",
+				loc: "LibreOffice Calc"
+			}
+		},
+		"settings-cancel": {
+			en: {
+				value: "Cancel",
+				title: "Cancel changes and close Settings"
+			},
+			hu: {
+				value: "Mégse",
+				title: "A változtatások figyelmen kívül hagyása, és a Beállítások bezárása"
+			}
+		},
+		"settings-ok": {
+			en: {
+				value: "OK",
+				title: "Save changes and reload the application"
+			},
+			hu: {
+				value: "OK",
+				title: "A változtatások mentése és az alkalmazás újratöltése"
 			}
 		},
 		/* toolbox */
@@ -111,9 +204,9 @@ var lang_data = {
 				name: "Matematikai függvények"
 			}
 		},
-		"category-logical": {
+		"category-logic": {
 			en: {
-				name: "Logical functions"
+				name: "Logic functions"
 			},
 			hu: {
 				name: "Logikai függvények"
@@ -137,10 +230,10 @@ var lang_data = {
 		},
 		"category-matrix": {
 			en: {
-				name: "Search functions"
+				name: "Matrix functions"
 			},
 			hu: {
-				name: "Kereső függvények"
+				name: "Mátrix függvények"
 			}
 		},
 		"category-info": {
@@ -601,6 +694,18 @@ var lang_data = {
 				name: "transzponálás",
 				help: "Egy tartomány sorait oszlopokká, oszlopait pedig sorokká alakítja.\n\
 					=transzponálás(tartomány)"
+			}
+		},
+		"sprego_indirect": {
+			en: {
+				name: "indirect",
+				help: "Creates cell index from text.\n\
+					=indirect(text, [type])"
+			},
+			hu: {
+				name: "indirekt",
+				help: "Szövegből cellahivatkozást készít.\n\
+					=indirekt(szöveg; [típus])"
 			}
 		},
 		/* info */

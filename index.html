@@ -6,6 +6,7 @@
 		<title>Sprego Blocks</title>
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<link rel="icon" href="icon.png" type="image/png" />
+		<link rel="manifest" href="manifest.json">
 		<script src="script.js" type="text/javascript"></script>
 		<script src="external/FileSaver.min.js" type="text/javascript"></script>
 		<script src="external/saveSvgAsPng.js" type="text/javascript"></script>
@@ -18,19 +19,19 @@
 		<!-- blocks -->
 		<script src="blockly/blocks/sprego_misc.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_math.js" type="text/javascript"></script>
-		<script src="blockly/blocks/sprego_logical.js" type="text/javascript"></script>
+		<script src="blockly/blocks/sprego_logic.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_text.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_date.js" type="text/javascript"></script>
-		<script src="blockly/blocks/sprego_search.js" type="text/javascript"></script>
+		<script src="blockly/blocks/sprego_matrix.js" type="text/javascript"></script>
 		<script src="blockly/blocks/sprego_info.js" type="text/javascript"></script>
 		
 		<!-- generators -->
 		<script src="blockly/generators/sprego/sprego_misc.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_math.js" type="text/javascript"></script>
-		<script src="blockly/generators/sprego/sprego_logical.js" type="text/javascript"></script>
+		<script src="blockly/generators/sprego/sprego_logic.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_text.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_date.js" type="text/javascript"></script>
-		<script src="blockly/generators/sprego/sprego_search.js" type="text/javascript"></script>
+		<script src="blockly/generators/sprego/sprego_matrix.js" type="text/javascript"></script>
 		<script src="blockly/generators/sprego/sprego_info.js" type="text/javascript"></script>
 		
 		<!-- localization -->
@@ -38,21 +39,52 @@
 	</head>
 	<body>
 		<main>
-			<form>
-				<input type="button" id="create-button" data-locale="button-create" />
+			<form id="controls">
+				<input type="button" id="create-button" data-locale="controls-create" />
 				<label for="output">&#x2713;</label><!-- unicode check mark -->
 				<input type="text" id="output" readonly />
-				<input type="button" id="menu-button" data-locale="button-menu" />
+				<input type="button" id="menu-button" data-locale="controls-menu" />
 				<fieldset id="menu">
-					<input type="button" class="menu-item" id="save" data-locale="button-save" />
-					<input type="button" class="menu-item" id="open" data-locale="button-open" />
-					<input type="button" class="menu-item" id="screenshot" data-locale="button-screenshot" />
-					<input type="button" class="menu-item" id="clear" data-locale="button-clear" />
+					<input type="button" class="menu-item" id="save" data-locale="menu-save" />
+					<input type="button" class="menu-item" id="open" data-locale="menu-open" />
+					<input type="button" class="menu-item" id="screenshot" data-locale="menu-screenshot" />
+					<input type="button" class="menu-item" id="clear" data-locale="menu-clear" />
 					<hr />
-					<input type="button" class="menu-item" id="help" data-locale="button-help" />
+					<input type="button" class="menu-item" id="sets" data-locale="menu-settings" />
+					<input type="button" class="menu-item" id="help" data-locale="menu-help" />
 				</fieldset>
 			</form>
 			<section id="blockly"></section>
+			<section id="settings-window">
+				<h1 data-locale="settings-header"></h1>
+				<form id="settings">
+					<fieldset>
+						<label for="settings-lang" data-locale="settings-lang"></label>
+						<select id="settings-lang" data-locale="settings-lang-list">
+							<option value="en"></option>
+							<option value="hu"></option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<label for="settings-refstyle" data-locale="settings-refstyle"></label>
+						<select id="settings-refstyle" data-locale="settings-refstyle-list">
+							<option value="a1"></option>
+							<option value="r1c1"></option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<label for="settings-software" data-locale="settings-software"></label>
+						<select id="settings-software" data-locale="settings-software-list">
+							<option value="mse"></option>
+							<option value="loc"></option>
+						</select>
+					</fieldset>
+					<fieldset>
+						<input type="button" id="settings-cancel" data-locale="settings-cancel" />
+						<input type="button" id="settings-ok" data-locale="settings-ok" />
+					</fieldset>
+				</form>
+			</section>
 		</main>
 		<script id="toolbox" type="application/xml">
 			<xml>
@@ -74,7 +106,7 @@
 					<block type="sprego_sqrt/abs/fact"></block>
 					<block type="sprego_rand"></block>
 				</category>
-				<category colour="#263238" locale="category-logical">
+				<category colour="#263238" locale="category-logic">
 					<block type="sprego_if"></block>
 					<block type="sprego_and/or"></block>
 					<block type="sprego_not"></block>
@@ -98,6 +130,7 @@
 					<block type="sprego_row/column"></block>
 					<block type="sprego_offset"></block>
 					<block type="sprego_transpose"></block>
+					<block type="sprego_indirect"></block>
 				</category>
 				<category colour="#424242" locale="category-info">
 					<block type="sprego_iserror/isblank"></block>
