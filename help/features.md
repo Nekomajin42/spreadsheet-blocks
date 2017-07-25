@@ -21,7 +21,7 @@ You can create a screenshot via the menu in the top right corner.
 The application will automatically save the screenshot into an image file (`.png`).
 
 ## Reset
-You can clear every block (except the "=" block) from the workspace via the menu in the top right corner.
+You can remove every block (except the "=" block) from the workspace via the menu in the top right corner.
 This action is reversible with two *Undo* operations from the context menu.
 
 ## Backup and restore
