@@ -69,9 +69,7 @@ window.addEventListener("DOMContentLoaded", function()
 {
 	// load settings and UI strings
 	spregoBlocks.lang = getBrowserLocale();
-	spregoBlocks.settings = (window.localStorage.settings) ? JSON.parse(window.localStorage.settings) : {lang: spregoBlocks.lang, 
-																										refstyle: "a1", 
-																										software: "mse"};
+	spregoBlocks.settings = (window.localStorage.settings) ? JSON.parse(window.localStorage.settings) : {lang: spregoBlocks.lang, software: "mse"};
 	setUILocale(spregoBlocks.lang);
 	
 	// config the workspace
@@ -229,7 +227,6 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		// load saved settings
 		document.getElementById("settings-lang").value = spregoBlocks.settings.lang || spregoBlocks.lang;
-		document.getElementById("settings-refstyle").value = spregoBlocks.settings.refstyle || "a1";
 		document.getElementById("settings-software").value = spregoBlocks.settings.software || "mse";
 		
 		document.getElementById("settings-window").classList.add("open");
@@ -241,7 +238,6 @@ window.addEventListener("DOMContentLoaded", function()
 	document.getElementById("settings-ok").addEventListener("click", function(e)
 	{
 		spregoBlocks.settings.lang = document.getElementById("settings-lang").value;
-		spregoBlocks.settings.refstyle = document.getElementById("settings-refstyle").value;
 		spregoBlocks.settings.software = document.getElementById("settings-software").value;
 		
 		window.localStorage.settings = JSON.stringify(spregoBlocks.settings);
@@ -290,10 +286,18 @@ function getBrowserLocale()
 function setUILocale(lang)
 {
 	// append Blockly locale file to HEAD
-	var script = document.createElement("script");
-	script.src = "blockly/msg/js/" + spregoBlocks.lang + ".js";
-	script.type = "text/javascript";
-	document.head.appendChild(script);
+	if (document.getElementById("blockly-lang"))
+	{
+		document.getElementById("blockly-lang").src = "blockly/msg/js/" + spregoBlocks.lang + ".js";
+	}
+	else
+	{
+		var script = document.createElement("script");
+		script.src = "blockly/msg/js/" + spregoBlocks.lang + ".js";
+		script.type = "text/javascript";
+		script.id = "blockly-lang";
+		document.head.appendChild(script);
+	}
 	
 	// controls, menu, settings
 	var elements = document.querySelectorAll("input[data-locale]");

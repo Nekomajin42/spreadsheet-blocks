@@ -75,7 +75,6 @@ Blockly.JavaScript["sprego_absoluteref"] = function(block)
 		row = (which === "ROW" || which === "BOTH") ? "$" + indexes[i].match(/\d+/)[0] : indexes[i].match(/\d+/)[0];
 		indexes[i] = column + row;
 	}
-	console.log(indexes);
 	index = indexes.join(":");
 	
 	return [index, Blockly.JavaScript.ORDER_NONE];

@@ -46,31 +46,31 @@ var lang_data = {
 		},
 		"menu-save": {
 			en: {
-				value: "Save",
+				value: "Save...",
 				title: "Save the entire workspace to XML (.sb)"
 			},
 			hu: {
-				value: "Mentés",
+				value: "Mentés...",
 				title: "A teljes munkaterület mentése XML-be (.sb)"
 			}
 		},
 		"menu-open": {
 			en: {
-				value: "Open",
+				value: "Open...",
 				title: "Open a workspace from XMl (.sb)"
 			},
 			hu: {
-				value: "Megnyitás",
+				value: "Megnyitás...",
 				title: "Munkaterület megnyitása XML-ből (.sb)"
 			}
 		},
 		"menu-screenshot": {
 			en: {
-				value: "Screenshot",
+				value: "Screenshot...",
 				title: "Save the entire workspace as image (.png)"
 			},
 			hu: {
-				value: "Fénykép",
+				value: "Fénykép...",
 				title: "A teljes munaterület mentése képként (.png)"
 			}
 		},
@@ -86,11 +86,11 @@ var lang_data = {
 		},
 		"menu-settings": {
 			en: {
-				value: "Settings",
+				value: "Settings...",
 				title: "Open Settings"
 			},
 			hu: {
-				value: "Beállítások",
+				value: "Beállítások...",
 				title: "Beállítások megnyitása"
 			}
 		},
@@ -129,24 +129,6 @@ var lang_data = {
 			hu: {
 				en: "Angol",
 				hu: "Magyar"
-			}
-		},
-		"settings-refstyle": {
-			en: {
-				label: "Reference style:",
-			},
-			hu: {
-				label: "Hivatkozás stílus:",
-			}
-		},
-		"settings-refstyle-list": {
-			en: {
-				a1: "A1",
-				r1c1: "R1C1"
-			},
-			hu: {
-				a1: "A1",
-				r1c1: "S1O1"
 			}
 		},
 		"settings-software": {
@@ -301,17 +283,17 @@ var lang_data = {
 		},
 		"sprego_absoluteref": {
 			en: {
-				name: [["None constant", "NONE"],
-					   ["Constant column", "COLUMN"],
-					   ["Constant row", "ROW"],
-					   ["Both constant", "BOTH"]],
+				name: [["A1", "NONE"],
+					   ["$A1", "COLUMN"],
+					   ["A$1", "ROW"],
+					   ["$A$1", "BOTH"]],
 				help: "Creates a relative, absolute or mixed cell reference."
 			},
 			hu: {
-				name: [["Nincs rögzítés", "NONE"],
-					   ["Rögzített oszlop", "COLUMN"],
-					   ["Rögzített sor", "ROW"],
-					   ["Mindkettő rögzített", "BOTH"]],
+				name: [["A1", "NONE"],
+					   ["$A1", "COLUMN"],
+					   ["A$1", "ROW"],
+					   ["$A$1", "BOTH"]],
 				help: "Létrehoz egy relatív, abszolút vagy kevert cellahivatkozást."
 			}
 		},
