@@ -229,7 +229,7 @@ var lang_data = {
 	},
 	blocks: {
 		/* expressions */
-		"sprego_start": {
+		"spreadsheet_start": {
 			en: {
 				help: "This is the beginning of the code. Everything you place outside of this block won't be parsed."
 			},
@@ -237,7 +237,7 @@ var lang_data = {
 				help: "Itt kezdődik a kód. Ami ezen a blokkon kívül van, azt a program nem értelmezi."
 			}
 		},
-		"sprego_expression": {
+		"spreadsheet_expression": {
 			en: {
 				name: "expression",
 				help: "Any exression (array, mathematical or logical expression, etc.)\n\
@@ -249,7 +249,7 @@ var lang_data = {
 					Ez a blokk helyettesítheti a többi kifejezés blokkot."
 			}
 		},
-		"sprego_mathops": {
+		"spreadsheet_mathops": {
 			en: {
 				help: "Executes the selected mathematical operation with the given expressions."
 			},
@@ -257,7 +257,7 @@ var lang_data = {
 				help: "Elvégzi a kiválasztott matematikai műveletet a bal és jobb oldalon megadott kifejezéssel."
 			}
 		},
-		"sprego_relops": {
+		"spreadsheet_relops": {
 			en: {
 				help: "Executes the selected relational operation with the given expressions."
 			},
@@ -265,7 +265,7 @@ var lang_data = {
 				help: "Elvégzi a kiválasztott relációs műveletet a bal és jobb oldalon megadott kifejezéssel."
 			}
 		},
-		"sprego_concat": {
+		"spreadsheet_concat": {
 			en: {
 				help: "Concatenates two strings."
 			},
@@ -273,7 +273,7 @@ var lang_data = {
 				help: "Két szövegdarabot összefűz egy szöveggé."
 			}
 		},
-		"sprego_array": {
+		"spreadsheet_array": {
 			en: {
 				help: "Defines an array by the indexes of its top left and bottom right cells."
 			},
@@ -281,7 +281,7 @@ var lang_data = {
 				help: "Meghatároz egy tartományt a bal felső és a jobb alsó celláinak hivatkozása alapján."
 			}
 		},
-		"sprego_absoluteref": {
+		"spreadsheet_absoluteref": {
 			en: {
 				name: [["A1", "NONE"],
 					   ["$A1", "COLUMN"],
@@ -297,7 +297,7 @@ var lang_data = {
 				help: "Létrehoz egy relatív, abszolút vagy kevert cellahivatkozást."
 			}
 		},
-		"sprego_externalref": {
+		"spreadsheet_externalref": {
 			en: {
 				help: "Creates a reference to a cell or array from an other worksheet."
 			},
@@ -306,7 +306,7 @@ var lang_data = {
 			}
 		},
 		/* math */
-		"sprego_sum/avg/count/product": {
+		"spreadsheet_sum/avg/count/product": {
 			en: {
 				name: [["sum", "SUM"],
 					   ["average", "AVG"],
@@ -330,7 +330,7 @@ var lang_data = {
 					=szorzat(tartomány1; [tartomány2]; ...)"
 			}
 		},
-		"sprego_min/max": {
+		"spreadsheet_min/max": {
 			en: {
 				name: [["min", "MIN"],
 					   ["max", "MAX"]],
@@ -346,7 +346,7 @@ var lang_data = {
 					=max(tartomány1; [tartomány2]; ...)"
 			}
 		},
-		"sprego_small/large": {
+		"spreadsheet_small/large": {
 			en: {
 				name: [["small", "SMALL"],
 					   ["large", "LARGE"]],
@@ -362,7 +362,7 @@ var lang_data = {
 					=nagy(tartomány; hanyadik)"
 			}
 		},
-		"sprego_round/rounddown/roundup": {
+		"spreadsheet_round/rounddown/roundup": {
 			en: {
 				name: [["round", "ROUND"],
 					   ["rounddown", "ROUNDDOWN"],
@@ -382,7 +382,7 @@ var lang_data = {
 					=kerek.fel(szám; hány_számjegyre)"
 			}
 		},
-		"sprego_mod/pow": {
+		"spreadsheet_mod/pow": {
 			en: {
 				name: [["mod", "MOD"],
 					   ["power", "POWER"]],
@@ -398,7 +398,7 @@ var lang_data = {
 					=hatvány(szám; n)"
 			}
 		},
-		"sprego_sqrt/abs/fact": {
+		"spreadsheet_sqrt/abs/fact": {
 			en: {
 				name: [["sqrt", "SQRT"],
 					   ["abs", "ABS"],
@@ -418,7 +418,7 @@ var lang_data = {
 					=fakt(szám)"
 			}
 		},
-		"sprego_rand": {
+		"spreadsheet_rand": {
 			en: {
 				name: "rand",
 				help: "Returns a random decimal fraction between 0 and 1.\n\
@@ -431,7 +431,7 @@ var lang_data = {
 			}
 		},
 		/* logical */
-		"sprego_if": {
+		"spreadsheet_if": {
 			en: {
 				name: "if",
 				help: "Evaluates the given logical expression, and returns with the second paramter, if it is true, or the third, if it is false.\n\
@@ -443,7 +443,7 @@ var lang_data = {
 					=ha(logikai_kifejezés; [érték_ha_igaz]; [érték_ha_hamis])"
 			}
 		},
-		"sprego_and/or": {
+		"spreadsheet_and/or": {
 			en: {
 				name: [["and", "AND"],
 					   ["or", "OR"]],
@@ -459,7 +459,7 @@ var lang_data = {
 					=vagy(kifejezés1; [kifejezés2]; ...)"
 			}
 		},
-		"sprego_not": {
+		"spreadsheet_not": {
 			en: {
 				name: "not",
 				help: "Changes the result of a logical expression from TRUE to FALSE, and from FALSE to TRUE.\n\
@@ -472,7 +472,7 @@ var lang_data = {
 			}
 		},
 		/* text */
-		"sprego_left/right": {
+		"spreadsheet_left/right": {
 			en: {
 				name: [["left", "LEFT"],
 					   ["right", "RIGHT"]],
@@ -488,7 +488,7 @@ var lang_data = {
 					=jobb(szöveg; [n])"
 			}
 		},
-		"sprego_length": {
+		"spreadsheet_length": {
 			en: {
 				name: "length",
 				help: "Counts the number of characters in a text.\n\
@@ -500,7 +500,7 @@ var lang_data = {
 					=hossz(szöveg)"
 			}
 		},
-		"sprego_search": {
+		"spreadsheet_search": {
 			en: {
 				name: "search",
 				help: "Finds a piece of text in another text, and returns the number of the character where it starts.\n\
@@ -512,7 +512,7 @@ var lang_data = {
 					=szöveg.keres(szövegdarab; szövegben; [n])"
 			}
 		},
-		"sprego_substitute": {
+		"spreadsheet_substitute": {
 			en: {
 				name: "substitute",
 				help: "Replaces a piece of old text with a piece of new text.\n\
@@ -525,7 +525,7 @@ var lang_data = {
 			}
 		},
 		/* date/time */
-		"sprego_date/time": {
+		"spreadsheet_date/time": {
 			en: {
 				name: [["date", "DATE"],
 					   ["time", "TIME"]],
@@ -541,7 +541,7 @@ var lang_data = {
 					=idő(óra_szám; perc_ szám; másodperc_szám)"
 			}
 		},
-		"sprego_year/month/day": {
+		"spreadsheet_year/month/day": {
 			en: {
 				name: [["year", "YEAR"],
 					   ["month", "MONTH"],
@@ -561,7 +561,7 @@ var lang_data = {
 					=nap(dátum)"
 			}
 		},
-		"sprego_hour/minute/second": {
+		"spreadsheet_hour/minute/second": {
 			en: {
 				name: [["hour", "HOUR"],
 					   ["minute", "MINUTE"],
@@ -581,7 +581,7 @@ var lang_data = {
 					=mperc(idő)"
 			}
 		},
-		"sprego_today/now": {
+		"spreadsheet_today/now": {
 			en: {
 				name: [["today", "TODAY"],
 					   ["now", "NOW"]],
@@ -597,7 +597,7 @@ var lang_data = {
 					=most()"
 			}
 		},
-		"sprego_weekday/weeknum": {
+		"spreadsheet_weekday/weeknum": {
 			en: {
 				name: [["weekday", "WEEKDAY"],
 					   ["weeknum", "WEEKNUM"]],
@@ -614,7 +614,7 @@ var lang_data = {
 			}
 		},
 		/* matrix/search */
-		"sprego_index": {
+		"spreadsheet_index": {
 			en: {
 				name: "index",
 				help: "Returns a value from an array given by its row or column number.\n\
@@ -626,7 +626,7 @@ var lang_data = {
 					=index(tartomány; [sorszám]; [oszlopszám])"
 			}
 		},
-		"sprego_match": {
+		"spreadsheet_match": {
 			en: {
 				name: "match",
 				help: "Finds a value in an array, and returns its row or column number.\n\
@@ -638,7 +638,7 @@ var lang_data = {
 					=hol.van(keresett_érték; tartomány; [egyezés_típusa])"
 			}
 		},
-		"sprego_row/column": {
+		"spreadsheet_row/column": {
 			en: {
 				name: [["row", "ROW"],
 					   ["column", "COLUMN"]],
@@ -654,7 +654,7 @@ var lang_data = {
 					=oszlop(cellahivatkozás)"
 			}
 		},
-		"sprego_offset": {
+		"spreadsheet_offset": {
 			en: {
 				name: "offset",
 				help: "Returns the index of a cell after the given offset is applied.\n\
@@ -666,7 +666,7 @@ var lang_data = {
 					=eltolás(cellahivatkozás; sorok_száma; oszlopok_száma; [magasság]; [szélesség])"
 			}
 		},
-		"sprego_transpose": {
+		"spreadsheet_transpose": {
 			en: {
 				name: "transpose",
 				help: "Transforms the rows to columns and the columns to rows of the given array.\n\
@@ -678,7 +678,7 @@ var lang_data = {
 					=transzponálás(tartomány)"
 			}
 		},
-		"sprego_indirect": {
+		"spreadsheet_indirect": {
 			en: {
 				name: "indirect",
 				help: "Creates cell index from text.\n\
@@ -691,7 +691,7 @@ var lang_data = {
 			}
 		},
 		/* info */
-		"sprego_iserror/isblank": {
+		"spreadsheet_iserror/isblank": {
 			en: {
 				name: [["iserror", "ISERROR"],
 					   ["isblank", "ISBLANK"]],
@@ -707,7 +707,7 @@ var lang_data = {
 					=üres(cellahivatkozás)"
 			}
 		},
-		"sprego_isnumber/islogical/istext": {
+		"spreadsheet_isnumber/islogical/istext": {
 			en: {
 				name: [["isnumber", "ISNUMBER"],
 					   ["islogical", "ISLOGICAL"],

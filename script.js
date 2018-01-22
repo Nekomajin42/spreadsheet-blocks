@@ -3,7 +3,7 @@
 /**
  * Config object for UI locale, colors, etc.
  */
-var spregoBlocks = {
+var spreadsheetBlocks = {
 	lang: undefined,
 	settings: undefined,
 	colors: {
@@ -68,9 +68,9 @@ var spregoBlocks = {
 window.addEventListener("DOMContentLoaded", function()
 {
 	// load settings and UI strings
-	spregoBlocks.lang = getBrowserLocale();
-	spregoBlocks.settings = (window.localStorage.settings) ? JSON.parse(window.localStorage.settings) : {lang: spregoBlocks.lang, software: "mse"};
-	setUILocale(spregoBlocks.lang);
+	spreadsheetBlocks.lang = getBrowserLocale();
+	spreadsheetBlocks.settings = (window.localStorage.settings) ? JSON.parse(window.localStorage.settings) : {lang: spreadsheetBlocks.lang, software: "mse"};
+	setUILocale(spreadsheetBlocks.lang);
 	
 	// config the workspace
 	var workspace = Blockly.inject("blockly",
@@ -98,7 +98,7 @@ window.addEventListener("DOMContentLoaded", function()
 	// restore
 	if (window.localStorage.autoSave == null) // no session found, create START block
 	{
-		var xml_text = "<xml><block type='sprego_start' id='sprego_start' x='0' y='100'></block></xml>";
+		var xml_text = "<xml><block type='spreadsheet_start' id='spreadsheet_start' x='0' y='100'></block></xml>";
 		var xml = Blockly.Xml.textToDom(xml_text);
 		Blockly.Xml.domToWorkspace(xml, workspace);
 	}
@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", function()
 	document.getElementById("create-button").addEventListener("click", function()
 	{
 		// get the code (only inside the start block)
-		var code = Blockly.JavaScript.blockToCode(workspace.getBlockById("sprego_start"));
+		var code = Blockly.JavaScript.blockToCode(workspace.getBlockById("spreadsheet_start"));
 		
 		// fill the output field
 		var output = document.getElementById("output");
@@ -203,7 +203,7 @@ window.addEventListener("DOMContentLoaded", function()
 	document.getElementById("clear").addEventListener("click", function()
 	{
 		Blockly.mainWorkspace.clear(); // clear the workspace
-		var xml_text = "<xml><block type='sprego_start' id='sprego_start' x='0' y='100'></block></xml>";
+		var xml_text = "<xml><block type='spreadsheet_start' id='spreadsheet_start' x='0' y='100'></block></xml>";
 		var xml = Blockly.Xml.textToDom(xml_text);
 		Blockly.Xml.domToWorkspace(xml, workspace);
 	});
@@ -213,7 +213,7 @@ window.addEventListener("DOMContentLoaded", function()
 	{
 		try
 		{
-			saveSvgAsPng(document.querySelector(".blocklySvg"), "sprego_blocks.png", {encoderOptions: 1});
+			saveSvgAsPng(document.querySelector(".blocklySvg"), "spreadsheet_blocks.png", {encoderOptions: 1});
 		}
 		catch (e)
 		{
@@ -226,8 +226,8 @@ window.addEventListener("DOMContentLoaded", function()
 	document.getElementById("sets").addEventListener("click", function()
 	{
 		// load saved settings
-		document.getElementById("settings-lang").value = spregoBlocks.settings.lang || spregoBlocks.lang;
-		document.getElementById("settings-software").value = spregoBlocks.settings.software || "mse";
+		document.getElementById("settings-lang").value = spreadsheetBlocks.settings.lang || spreadsheetBlocks.lang;
+		document.getElementById("settings-software").value = spreadsheetBlocks.settings.software || "mse";
 		
 		document.getElementById("settings-window").classList.add("open");
 	});
@@ -237,10 +237,10 @@ window.addEventListener("DOMContentLoaded", function()
 	});
 	document.getElementById("settings-ok").addEventListener("click", function(e)
 	{
-		spregoBlocks.settings.lang = document.getElementById("settings-lang").value;
-		spregoBlocks.settings.software = document.getElementById("settings-software").value;
+		spreadsheetBlocks.settings.lang = document.getElementById("settings-lang").value;
+		spreadsheetBlocks.settings.software = document.getElementById("settings-software").value;
 		
-		window.localStorage.settings = JSON.stringify(spregoBlocks.settings);
+		window.localStorage.settings = JSON.stringify(spreadsheetBlocks.settings);
 		
 		location.reload();
 	});
@@ -248,7 +248,7 @@ window.addEventListener("DOMContentLoaded", function()
 	// open Help
 	document.getElementById("help").addEventListener("click", function()
 	{
-		window.open("https://github.com/Nekomajin42/sprego-blocks/tree/master/help");
+		window.open("https://github.com/Nekomajin42/spreadsheet-blocks/tree/master/help");
 	});
 });
 
@@ -288,12 +288,12 @@ function setUILocale(lang)
 	// append Blockly locale file to HEAD
 	if (document.getElementById("blockly-lang"))
 	{
-		document.getElementById("blockly-lang").src = "blockly/msg/js/" + spregoBlocks.lang + ".js";
+		document.getElementById("blockly-lang").src = "blockly/msg/js/" + spreadsheetBlocks.lang + ".js";
 	}
 	else
 	{
 		var script = document.createElement("script");
-		script.src = "blockly/msg/js/" + spregoBlocks.lang + ".js";
+		script.src = "blockly/msg/js/" + spreadsheetBlocks.lang + ".js";
 		script.type = "text/javascript";
 		script.id = "blockly-lang";
 		document.head.appendChild(script);
@@ -303,20 +303,20 @@ function setUILocale(lang)
 	var elements = document.querySelectorAll("input[data-locale]");
 	for (var i=0; i<elements.length; i++)
 	{
-		elements[i].value = lang_data.gui[elements[i].dataset.locale][spregoBlocks.lang].value;
-		elements[i].title = lang_data.gui[elements[i].dataset.locale][spregoBlocks.lang].title;
+		elements[i].value = lang_data.gui[elements[i].dataset.locale][spreadsheetBlocks.lang].value;
+		elements[i].title = lang_data.gui[elements[i].dataset.locale][spreadsheetBlocks.lang].title;
 	}
 	elements = document.querySelectorAll("h1[data-locale], label[data-locale]");
 	for (var i=0; i<elements.length; i++)
 	{
-		elements[i].innerText = lang_data.gui[elements[i].dataset.locale][spregoBlocks.lang].label;
+		elements[i].innerText = lang_data.gui[elements[i].dataset.locale][spreadsheetBlocks.lang].label;
 	}
 	elements = document.querySelectorAll("select[data-locale]");
 	for (var i=0; i<elements.length; i++)
 	{
 		for (var j=0; j<elements[i].options.length; j++)
 		{
-			elements[i].options[j].innerText = lang_data.gui[elements[i].dataset.locale][spregoBlocks.lang][elements[i].options[j].value];
+			elements[i].options[j].innerText = lang_data.gui[elements[i].dataset.locale][spreadsheetBlocks.lang][elements[i].options[j].value];
 		}
 	}
 	
@@ -325,34 +325,34 @@ function setUILocale(lang)
 	elements = toolbox.querySelectorAll("category");
 	for (var i=0; i<elements.length; i++)
 	{
-		elements[i].setAttribute("name", lang_data.gui[elements[i].getAttribute("locale")][spregoBlocks.lang].name);
+		elements[i].setAttribute("name", lang_data.gui[elements[i].getAttribute("locale")][spreadsheetBlocks.lang].name);
 	}
 	document.getElementById("toolbox").textContent = new XMLSerializer().serializeToString(toolbox);
 }
 
 function getErrorLocale(error)
 {
-	return lang_data.gui[error][spregoBlocks.lang].message;
+	return lang_data.gui[error][spreadsheetBlocks.lang].message;
 }
 
 function getBlockLocale(block)
 {
-	return lang_data.blocks[block][spregoBlocks.lang];
+	return lang_data.blocks[block][spreadsheetBlocks.lang];
 }
 
 function getFunctionName(block, name)
 {
 	if (name === undefined)
 	{
-		return lang_data.blocks[block][spregoBlocks.lang].name;
+		return lang_data.blocks[block][spreadsheetBlocks.lang].name;
 	}
 	else
 	{
-		for (var i=0; i<lang_data.blocks[block][spregoBlocks.lang].name.length; i++)
+		for (var i=0; i<lang_data.blocks[block][spreadsheetBlocks.lang].name.length; i++)
 		{
-			if (lang_data.blocks[block][spregoBlocks.lang].name[i][1] === name)
+			if (lang_data.blocks[block][spreadsheetBlocks.lang].name[i][1] === name)
 			{
-				return lang_data.blocks[block][spregoBlocks.lang].name[i][0];
+				return lang_data.blocks[block][spreadsheetBlocks.lang].name[i][0];
 			}
 		}
 	}
@@ -365,5 +365,5 @@ function getSeparatorLocale()
 		return ";";
 	}
 	
-	return lang_data.meta.separator[spregoBlocks.lang]; // MS style
+	return lang_data.meta.separator[spreadsheetBlocks.lang]; // MS style
 }

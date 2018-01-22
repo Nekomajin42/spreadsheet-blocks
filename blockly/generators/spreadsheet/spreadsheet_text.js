@@ -1,14 +1,14 @@
 "use strict";
 
-goog.provide('Blockly.JavaScript.sprego');
+goog.provide('Blockly.JavaScript.spreadsheet');
 
 goog.require('Blockly.JavaScript');
 
-Blockly.JavaScript["sprego_left/right"] = function(block)
+Blockly.JavaScript["spreadsheet_left/right"] = function(block)
 {
 	var separator = getSeparatorLocale() + " ";
 	
-	var name = getFunctionName("sprego_left/right", block.getFieldValue("NAME"));
+	var name = getFunctionName("spreadsheet_left/right", block.getFieldValue("NAME"));
 	
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
 	var n = Blockly.JavaScript.valueToCode(block, "N", Blockly.JavaScript.ORDER_NONE || "");
@@ -16,19 +16,19 @@ Blockly.JavaScript["sprego_left/right"] = function(block)
 	return [name + "(" + text + separator + n + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_length"] = function(block)
+Blockly.JavaScript["spreadsheet_length"] = function(block)
 {
-	var name = getFunctionName("sprego_length");
+	var name = getFunctionName("spreadsheet_length");
 	
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
 	return [name + "(" + text + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_search"] = function(block)
+Blockly.JavaScript["spreadsheet_search"] = function(block)
 {
 	var separator = getSeparatorLocale() + " ";
 	
-	var name = getFunctionName("sprego_search");
+	var name = getFunctionName("spreadsheet_search");
 	
 	var find = Blockly.JavaScript.valueToCode(block, "FIND", Blockly.JavaScript.ORDER_NONE || "");
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
@@ -37,11 +37,11 @@ Blockly.JavaScript["sprego_search"] = function(block)
 	return [name + "(" + find + separator + text + separator + start + ")", Blockly.JavaScript.ORDER_NONE];
 };
 
-Blockly.JavaScript["sprego_substitute"] = function(block)
+Blockly.JavaScript["spreadsheet_substitute"] = function(block)
 {
 	var separator = getSeparatorLocale() + " ";
 	
-	var name = getFunctionName("sprego_substitute");
+	var name = getFunctionName("spreadsheet_substitute");
 	
 	var text = Blockly.JavaScript.valueToCode(block, "TEXT", Blockly.JavaScript.ORDER_NONE || "");
 	var old_text = Blockly.JavaScript.valueToCode(block, "OLD_TEXT", Blockly.JavaScript.ORDER_NONE || "");

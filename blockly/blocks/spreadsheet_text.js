@@ -1,14 +1,14 @@
 "use strict";
 
-goog.provide("Blockly.Blocks.sprego");
+goog.provide("Blockly.Blocks.spreadsheet");
 
 goog.require("Blockly.Blocks");
 
-Blockly.Blocks["sprego_left/right"] =
+Blockly.Blocks["spreadsheet_left/right"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_left/right");
+		var locale = getBlockLocale("spreadsheet_left/right");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -16,30 +16,30 @@ Blockly.Blocks["sprego_left/right"] =
 		this.appendValueInput("TEXT");
 		this.appendValueInput("N");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.orange.c1);
+		this.setColour(spreadsheetBlocks.colors.orange.c1);
 	}
 };
 
-Blockly.Blocks["sprego_length"] =
+Blockly.Blocks["spreadsheet_length"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_length");
+		var locale = getBlockLocale("spreadsheet_length");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
 			.appendField(locale.name);
 		this.appendValueInput("TEXT");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.orange.c2);
+		this.setColour(spreadsheetBlocks.colors.orange.c2);
 	}
 };
 
-Blockly.Blocks["sprego_search"] =
+Blockly.Blocks["spreadsheet_search"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_search");
+		var locale = getBlockLocale("spreadsheet_search");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -48,15 +48,15 @@ Blockly.Blocks["sprego_search"] =
 		this.appendValueInput("TEXT");
 		this.appendValueInput("START");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.orange.c3);
+		this.setColour(spreadsheetBlocks.colors.orange.c3);
 	}
 };
 
-Blockly.Blocks["sprego_substitute"] =
+Blockly.Blocks["spreadsheet_substitute"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_substitute");
+		var locale = getBlockLocale("spreadsheet_substitute");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -66,6 +66,6 @@ Blockly.Blocks["sprego_substitute"] =
 		this.appendValueInput("NEW_TEXT");
 		this.appendValueInput("N");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.orange.c3);
+		this.setColour(spreadsheetBlocks.colors.orange.c3);
 	}
 };

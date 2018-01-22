@@ -1,14 +1,14 @@
 "use strict";
 
-goog.provide("Blockly.Blocks.sprego");
+goog.provide("Blockly.Blocks.spreadsheet");
 
 goog.require("Blockly.Blocks");
 
-Blockly.Blocks["sprego_if"] =
+Blockly.Blocks["spreadsheet_if"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_if");
+		var locale = getBlockLocale("spreadsheet_if");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -17,15 +17,15 @@ Blockly.Blocks["sprego_if"] =
 		this.appendValueInput("VALUE_IF_TRUE");
 		this.appendValueInput("VALUE_IF_FALSE");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.bluegrey.c1);
+		this.setColour(spreadsheet_color.bluegrey.c1);
 	}
 };
 
-Blockly.Blocks["sprego_and/or"] =
+Blockly.Blocks["spreadsheet_and/or"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_and/or");
+		var locale = getBlockLocale("spreadsheet_and/or");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -33,21 +33,21 @@ Blockly.Blocks["sprego_and/or"] =
 		this.appendValueInput("EXPRESSION1");
 		this.appendValueInput("EXPRESSION2");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.bluegrey.c2);
+		this.setColour(spreadsheet_color.bluegrey.c2);
 	}
 };
 
-Blockly.Blocks["sprego_not"] =
+Blockly.Blocks["spreadsheet_not"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_not");
+		var locale = getBlockLocale("spreadsheet_not");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
 			.appendField(locale.name);
 		this.appendValueInput("EXPRESSION");
 		this.setTooltip(locale.help);
-		this.setColour(spregoBlocks.colors.bluegrey.c3);
+		this.setColour(spreadsheet_color.bluegrey.c3);
 	}
 };

@@ -1,14 +1,14 @@
 "use strict";
 
-goog.provide("Blockly.Blocks.sprego");
+goog.provide("Blockly.Blocks.spreadsheet");
 
 goog.require("Blockly.Blocks");
 
-Blockly.Blocks["sprego_index"] =
+Blockly.Blocks["spreadsheet_index"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_index");
+		var locale = getBlockLocale("spreadsheet_index");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -17,15 +17,15 @@ Blockly.Blocks["sprego_index"] =
 		this.appendValueInput("ROW");
 		this.appendValueInput("COLUMN");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.teal.c1);
+		this.setColour(spreadsheet_color.teal.c1);
 	}
 };
 
-Blockly.Blocks["sprego_match"] =
+Blockly.Blocks["spreadsheet_match"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_match");
+		var locale = getBlockLocale("spreadsheet_match");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -34,30 +34,30 @@ Blockly.Blocks["sprego_match"] =
 		this.appendValueInput("ARRAY");
 		this.appendValueInput("TYPE");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.teal.c2);
+		this.setColour(spreadsheet_color.teal.c2);
 	}
 };
 
-Blockly.Blocks["sprego_row/column"] =
+Blockly.Blocks["spreadsheet_row/column"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_row/column");
+		var locale = getBlockLocale("spreadsheet_row/column");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(locale.name), "NAME");
 		this.appendValueInput("INDEX");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.teal.c3);
+		this.setColour(spreadsheet_color.teal.c3);
 	}
 };
 
-Blockly.Blocks["sprego_offset"] =
+Blockly.Blocks["spreadsheet_offset"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_offset");
+		var locale = getBlockLocale("spreadsheet_offset");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
@@ -68,21 +68,21 @@ Blockly.Blocks["sprego_offset"] =
 		this.appendValueInput("HEIGHT");
 		this.appendValueInput("WIDTH");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.teal.c4);
+		this.setColour(spreadsheet_color.teal.c4);
 	}
 };
 
-Blockly.Blocks["sprego_transpose"] =
+Blockly.Blocks["spreadsheet_transpose"] =
 {
 	init: function()
 	{
-		var locale = getBlockLocale("sprego_transpose");
+		var locale = getBlockLocale("spreadsheet_transpose");
 		this.setInputsInline(true);
 		this.setOutput(true);
 		this.appendDummyInput()
 			.appendField(locale.name);
 		this.appendValueInput("ARRAY");
 		this.setTooltip(locale.help);
-		this.setColour(sprego_color.teal.c4);
+		this.setColour(spreadsheet_color.teal.c4);
 	}
 };
